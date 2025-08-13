@@ -1,0 +1,2354 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>n7ZLPJljxcghuIm-gt-738459-2025-07-22T16:24:54.222Z::pd.xml</types1:EntryId>
+      <types1:Name>process_CatsyToMDM_State</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>leela.gatla@curaleaf.com</types1:CreatedBy>
+      <types1:CreationDate>2025-07-22T16:24:54Z</types1:CreationDate>
+      <types1:ModifiedBy>leela.gatla@curaleaf.com</types1:ModifiedBy>
+      <types1:ModificationDate>2025-08-08T17:31:42Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>leela.gatla@curaleaf.com</types1:PublishedBy>
+      <types1:PublicationDate>2025-08-08T17:31:51Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.process_CatsyToMDM_State/process_CatsyToMDM_State.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="3tBGhczWbD7fJQybttMZKK"
+                  displayName="process_CatsyToMDM_State"
+                  name="process_CatsyToMDM_State"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="input_payload"
+                          required="false"
+                          type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="businessId" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="sourcePkey" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Status" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="ErrorCode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="t_sessionID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmCreateResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_FinalPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="v_UserName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">dev.int.curaleaf</option>
+                  </options>
+               </field>
+               <field description="" name="v_Password" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">$9Rb&amp;S7W9</option>
+                  </options>
+               </field>
+               <field description="" name="v_LoginURL" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">https://dm1-us.informaticacloud.com/saas/public/core/v3/login</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmSearchResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_SearchBody" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_parsedSearchBody" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmUpdateResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_payload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_sourcePkey" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQErrorPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmDQErrorResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_CatsyID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_U_DQerrorMessage" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQErrorCode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQErrorMessage" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQErrorColumn" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQRuleName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_DQErrorValue" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_I_DQErrorMessage" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_XML_DQErrorMessaheFInal" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_RowIdentifierFinal" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_UpdateResponseForDQ" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ListDQError" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_updateDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_insertDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_InsertResponseForDQ" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_inputCatsyID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_StateVariantID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_sourcePkeyIsFixed" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_IsFixedUpdatePayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmIsfixedResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ErrorlogSearchBody" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ListErrorSearch" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_SearchResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ErrorlogDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ErrorlogSourcePkey" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ErrorlogUpdatedatePayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="t_ErrorlogUpdatedateSearchResponse"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="t_ErrorlogSearchBodyforUpdateDate"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ErrorlogUpdatedateDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="t_ErrorlogUpdatedateUpdateResponse"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_effect" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_cog" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_total_package_volume" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_unit_of_measure" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_dominance" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_flavor" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_design" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_effectFinal" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_product_line1" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_product_name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ratio" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_ratioed_cannabiniods" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_scent" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_weight_size" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_state" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="o_ErrorCode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_parentIDsearchBody" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_inputParentCatsyID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_parentIDsearchResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_parentIDDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_GlobalIDErrorPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_StatebusinessID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_GlobalbusinessID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_RelationshipPayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_RelationshipBusinessID" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_PicklistErrorDecision" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_mdmInsertResponse" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_Productline_Cond" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_Productline2_Cond" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_SubCategory2_Cond" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="t_GlobalIdErrorlogUpdatePayload" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedUsers>
+                     <user>leela.gatla@curaleaf.com</user>
+                     <user>Catsy_Demo</user>
+                     <user>dev.int.curaleaf</user>
+                  </allowedUsers>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="hd8c00b67-f4e7-4a72-8609-617cc7d6a202">
+               <start id="d6b38eb97-ed99-4396-9c78-e5af02aeb579">
+                  <link id="dd721be63-f972-4671-b326-dc56cfe2027c"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Service5a34d4f4-e593-46fd-a206-2b885f118154"/>
+               </start>
+               <service id="a13tBGhczWbD7fJQybttMZKK-Service5a34d4f4-e593-46fd-a206-2b885f118154">
+                  <title>GetSessionID</title>
+                  <serviceName>appConnectorB360:getSessionID</serviceName>
+                  <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                  <link id="h06d56dfa-88a1-4387-a801-d0e3a111fe93"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Assignment8000d278-f1df-4478-9ebe-11ed45b6c4df"/>
+               </service>
+               <service id="a13tBGhczWbD7fJQybttMZKK-Service11731fc4-d629-4615-baf8-6ae8be3a6702">
+                  <title>SearchGlobalRecord</title>
+                  <serviceName>appConnectorB360:SearchRecord</serviceName>
+                  <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                  <serviceInput>
+                     <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                     <parameter name="SearchBody" source="field">temp.t_parentIDsearchBody</parameter>
+                  </serviceInput>
+                  <link id="g5aed2545-4464-4fc4-bf3b-822516fce75c"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentf53e80a5-aa02-414c-a526-a8d457f5752f"/>
+               </service>
+               <service id="a13tBGhczWbD7fJQybttMZKK-Service349c55cb-077e-47c2-b8b3-1794f00aaf31">
+                  <title>SearchMDMRecord</title>
+                  <serviceName>appConnectorB360:SearchRecord</serviceName>
+                  <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                  <serviceInput>
+                     <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                     <parameter name="SearchBody" source="field">temp.t_SearchBody</parameter>
+                  </serviceInput>
+                  <link id="qa58c42e9-aea5-49a3-aba7-a7f635fc941d"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Assignmenteff83bd8-5328-408b-8858-b0036d6901a4"/>
+               </service>
+               <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment8000d278-f1df-4478-9ebe-11ed45b6c4df">
+                  <title>sessionID</title>
+                  <operation source="field" to="temp.t_sessionID">output.sessionId</operation>
+                  <operation source="formula" to="temp.t_inputCatsyID">
+                     <expression language="XQuery">$input.input_payload//state_variant_id/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_inputParentCatsyID">
+                     <expression language="XQuery">$input.input_payload//parent_catsy_id/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_SearchBody">
+                     <expression language="XQuery">'{ "entityType": "state_finished_product", 
+"fields":{"state_finished_product.state_variant_id":" '||$temp.t_inputCatsyID ||'"} }'
+</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_parentIDsearchBody">
+                     <expression language="XQuery">'{ "entityType": "global_finished_product", 
+"fields":{"global_finished_product.unique_id":" '|| $temp.t_inputParentCatsyID ||'"} }'</expression>
+                  </operation>
+                  <link id="j4efc290f-c4a7-4244-b209-d8537865136e"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Waitb24fcc05-8213-4f07-a561-8716b6fca66c"/>
+               </assignment>
+               <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentf53e80a5-aa02-414c-a526-a8d457f5752f">
+                  <title>Assignment to t_parentIDsearchResponse, t_parentIDDecision</title>
+                  <operation source="constant" to="temp.t_parentIDsearchResponse">{$output.GlobalSearchResponse}</operation>
+                  <operation source="formula" to="temp.t_parentIDDecision">
+                     <expression language="XQuery">if( $output.GlobalSearchResponse= $temp.t_inputParentCatsyID ) then "Yes" else "No"</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_GlobalIDErrorPayload">
+                     <expression language="XQuery">concat(
+  '{',
+    '"rowidentifier": "',  $temp.t_inputParentCatsyID , '", ',
+    '"catsyid": "', $temp.t_inputParentCatsyID , '", ',
+    '"userid": "xyz", ',
+    '"entity_type": "State", ',
+    '"dqerrordesc": "Parent Global record doesnot exist", ',
+    '"isfixed": "false", ',
+    '"insertdate": "', string(current-dateTime()), '", ',
+    '"updatedate": "', string(current-dateTime()), '"',
+ ' }'
+)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_Productline_Cond">
+                     <expression language="XQuery">(:
+let $value := $input.input_payload//product_line/text()
+return
+  if (empty($value) or normalize-space($value) = "" or $value = "null") then "Unclassified"
+  else $value
+
+let $value := $input.input_payload//product_line/text()
+
+return
+  if (empty($value) or normalize-space(string($value/Code)) = "" or string($value/Code) = "null") then "Unclassified"
+  else string($value/Code)
+:)
+let $code := $input.input_payload//product_line/Code/text()
+return
+  if (empty($code) or normalize-space($code) = "" or $code = "null")
+  then "Unclassified"
+  else string($code)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_Productline2_Cond">
+                     <expression language="XQuery">(:
+let $value := $input.input_payload//product_line_2/text()
+return
+  if (empty($value) or normalize-space($value) = "" or $value = "null") then "Unclassified"
+  else $value
+:)
+(:
+let $value := $input.input_payload//product_line_2/text()
+
+return
+  if (empty($value) or normalize-space(string($value/Code)) = "" or string($value/Code) = "null") then "Unclassified"
+  else string($value/Code)
+:)
+let $code := $input.input_payload//product_line_2/Code/text()
+return
+  if (empty($code) or normalize-space($code) = "" or $code = "null")
+  then "Unclassified"
+  else string($code)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_SubCategory2_Cond">
+                     <expression language="XQuery">(:
+let $value := $input.input_payload//sub_category_2/text()
+return
+  if (empty($value) or normalize-space($value) = "" or $value = "null") then "Unclassified"
+  else $value
+:)
+(:
+let $value := $input.input_payload//sub_category_2/text()
+
+return
+  if (empty($value) or normalize-space(string($value/Code)) = "" or string($value/Code) = "null") then "Unclassified"
+  else string($value/Code)
+:)
+let $code := $input.input_payload//sub_category_2/Code/text()
+return
+  if (empty($code) or normalize-space($code) = "" or $code = "null")
+  then "Unclassified"
+  else string($code)</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_GlobalIdErrorlogUpdatePayload">
+                     <expression language="XQuery">'[
+    {
+        "op": "replace",
+        "path": "isfixed",
+        "value": "true"
+    },
+    {
+        "op": "replace",
+        "path": "updatedate",
+        "value": "' || string(current-dateTime()) || '" 
+    }
+]'</expression>
+                  </operation>
+                  <link id="y614dcbcd-3edf-49c2-80e7-7fcaba49d8d9"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Decision2e464097-5887-42e6-abf3-1f29362f1f29"/>
+               </assignment>
+               <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmenteff83bd8-5328-408b-8858-b0036d6901a4">
+                  <title>mdmSearchResponse</title>
+                  <operation source="formula" to="temp.t_FinalPayload">
+                     <expression language="XQuery">(:
+let $json := util:toJSON($input.input_payload)
+return replace($json, '^\s*\{"root"\s*:\s*(\{.*\})\s*\}\s*$', '$1')
+ :)
+let $json := util:toJSON($input.input_payload)
+
+(: Flatten the root wrapper :)
+let $flattened := replace($json, '^\s*\{"root"\s*:\s*(\{.*\})\s*\}\s*$', '$1')
+
+(: Replace product_line :)
+let $step1 := replace(
+  $flattened,
+  '"product_line"\s*:\s*(null|\{[^}]*\})',
+  concat('"product_line":{"Name":"', $temp.t_Productline_Cond, '","Code":"', $temp.t_Productline_Cond, '"}')
+)
+
+(: Replace product_line_2 :)
+let $step2 := replace(
+  $step1,
+  '"product_line_2"\s*:\s*(null|\{[^}]*\})',
+  concat('"product_line_2":{"Name":"', $temp.t_Productline2_Cond, '","Code":"', $temp.t_Productline2_Cond, '"}')
+)
+
+(: Replace sub_category_2 :)
+let $step3 := replace(
+  $step2,
+  '"sub_category_2"\s*:\s*(null|\{[^}]*\})',
+  concat('"sub_category_2":{"Name":"', $temp.t_SubCategory2_Cond, '","Code":"', $temp.t_SubCategory2_Cond, '"}')
+)
+
+return $step3</expression>
+                  </operation>
+                  <operation source="field" to="temp.t_sourcePkey">temp.t_inputCatsyID</operation>
+                  <operation source="formula" to="temp.t_state">
+                     <expression language="XQuery">$input.input_payload//state/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_cog">
+                     <expression language="XQuery">$input.input_payload//cog/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_design">
+                     <expression language="XQuery">$input.input_payload//design/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_dominance">
+                     <expression language="XQuery">$input.input_payload//dominance/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_effect">
+                     <expression language="XQuery">$input.input_payload//effect/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_flavor">
+                     <expression language="XQuery">$input.input_payload//flavor/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_product_line1">
+                     <expression language="XQuery">$input.input_payload//product_line1/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_product_name">
+                     <expression language="XQuery">$input.input_payload//product_name/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_ratio">
+                     <expression language="XQuery">$input.input_payload//ratio/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_ratioed_cannabiniods">
+                     <expression language="XQuery">$input.input_payload//ratioed_cannabiniods/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_scent">
+                     <expression language="XQuery">$input.input_payload//scent/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_total_package_volume">
+                     <expression language="XQuery">$input.input_payload//total_package_volume/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_unit_of_measure">
+                     <expression language="XQuery">$input.input_payload//unit_of_measure/text()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_weight_size">
+                     <expression language="XQuery">$input.input_payload//weight_size/text()</expression>
+                  </operation>
+                  <link id="qc239834b-2c51-43fa-b5cc-7d715ecc9009"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Decisionc83853da-aef2-4dd6-851b-d6426d017a2e"/>
+               </assignment>
+               <wait id="a13tBGhczWbD7fJQybttMZKK-Waitb24fcc05-8213-4f07-a561-8716b6fca66c">
+                  <title>Wait 1</title>
+                  <duration source="formula">
+                     <function name="duration_expression">
+                        <arg name="value">2</arg>
+                        <arg name="scale">S</arg>
+                        <arg name="businessDays"/>
+                     </function>
+                  </duration>
+                  <link id="k0467bcb3-bb02-4041-bf2b-d3b08e54b1b5"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Service11731fc4-d629-4615-baf8-6ae8be3a6702"/>
+               </wait>
+               <container id="a13tBGhczWbD7fJQybttMZKK-Decision2e464097-5887-42e6-abf3-1f29362f1f29"
+                          type="exclusive">
+                  <title>t_parentIDDecision</title>
+                  <flow id="ic63e3d8b-4c93-470f-b926-30c1d522e4ba">
+                     <service id="a13tBGhczWbD7fJQybttMZKK-Servicefe67c975-1d1a-427f-ab2e-7bf4d55e81ff">
+                        <title>UpdateDQError_IsFixed 2</title>
+                        <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                        <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                        <serviceInput>
+                           <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                           <parameter name="payload" source="field">temp.t_GlobalIdErrorlogUpdatePayload</parameter>
+                           <parameter name="sourcePkey" source="field">temp.t_inputParentCatsyID</parameter>
+                           <parameter name="BusinessEntity" source="formula">
+                              <expression language="XQuery">"errorlog"</expression>
+                           </parameter>
+                        </serviceInput>
+                     </service>
+                     <link id="f65419a15-757e-46b0-a791-4f269713ac3e"
+                           targetId="a13tBGhczWbD7fJQybttMZKK-Decision2e464097-5887-42e6-abf3-1f29362f1f29"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="nc7a9600a-f063-4829-98f1-5fac22929551">
+                     <service id="a13tBGhczWbD7fJQybttMZKK-Serviceda3f98bb-d750-4d52-8668-62467d4a1f5d">
+                        <title>createGlobalIDDQErrorRecord</title>
+                        <serviceName>appConnectorB360:InsertErrorlog</serviceName>
+                        <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                        <serviceInput>
+                           <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                           <parameter name="payload" source="field">temp.t_GlobalIDErrorPayload</parameter>
+                           <parameter name="sourcePkey" source="field">temp.t_inputParentCatsyID</parameter>
+                           <parameter name="BusinessEntity" source="formula">
+                              <expression language="XQuery">'errorlog'</expression>
+                           </parameter>
+                        </serviceInput>
+                        <link id="sdc544127-f76a-4e33-a4e4-939b3533c9ec"
+                              targetId="a13tBGhczWbD7fJQybttMZKK-Throw23f0532a-f11b-4b19-bef7-282f27ef1919"/>
+                     </service>
+                     <throw id="a13tBGhczWbD7fJQybttMZKK-Throw23f0532a-f11b-4b19-bef7-282f27ef1919">
+                        <title>Throw 3</title>
+                        <throwInput>
+                           <parameter name="code" source="formula" updatable="true">
+                              <expression language="XQuery">'500'</expression>
+                           </parameter>
+                           <parameter name="detail" source="formula" updatable="true">
+                              <expression language="XQuery">'Global Record doesnot exist'</expression>
+                           </parameter>
+                           <parameter name="reason" source="formula" updatable="true">
+                              <expression language="XQuery">'Global record '||$temp.t_inputParentCatsyID||' is not created'</expression>
+                           </parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="j28767517-a15a-4402-a805-fdc9973df6da"
+                        targetId="ic63e3d8b-4c93-470f-b926-30c1d522e4ba"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$temp.t_parentIDDecision}</arg>
+                           <arg name="right">Yes</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="a8a44bfce-8019-46dd-b154-b551cea4e675"
+                        targetId="nc7a9600a-f063-4829-98f1-5fac22929551"
+                        type="containerLink"/>
+                  <link id="u91a0d453-c806-4006-8a56-5f059f818eec"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-Service349c55cb-077e-47c2-b8b3-1794f00aaf31"/>
+               </container>
+               <container id="a13tBGhczWbD7fJQybttMZKK-Decisionc83853da-aef2-4dd6-851b-d6426d017a2e"
+                          type="exclusive">
+                  <title>mdmSearchResponse</title>
+                  <flow id="b42fb2429-7f89-4d57-a68f-d1e897dab045">
+                     <eventContainer id="a13tBGhczWbD7fJQybttMZKK-Service3fdf34f3-fcff-4fa1-a76e-5768e318ba70">
+                        <service id="t535af555-d132-4ae5-b11c-989c84c861d9">
+                           <title>Update Record</title>
+                           <serviceName>appConnectorB360:UpdateRecordWithPOST</serviceName>
+                           <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                           <serviceInput>
+                              <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                              <parameter name="payload" source="field">temp.t_FinalPayload</parameter>
+                              <parameter name="sourcePKey" source="field">temp.t_sourcePkey</parameter>
+                              <parameter name="BusinessEntity" source="formula">
+                                 <expression language="XQuery">'state_finished_product'</expression>
+                              </parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="t8c8e9297-cb24-4e79-9430-9f6b26fa73e5">
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment3f3dea62-f034-4b4d-b557-884b15ba1b9f">
+                              <title>IsFixedUpdatePayload</title>
+                              <operation source="formula" to="temp.t_IsFixedUpdatePayload">
+                                 <expression language="XQuery">'[
+    {
+        "op": "replace",
+        "path": "isfixed",
+        "value": "true"
+    },
+    {
+        "op": "replace",
+        "path": "updatedate",
+        "value": "' || string(current-dateTime()) || '" 
+    }
+]'</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_ErrorlogSearchBody">
+                                 <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.catsyid":"'|| $temp.t_inputCatsyID ||'"} }'</expression>
+                              </operation>
+                              <link id="i19fa8b93-fe60-439c-a335-21e3a8b0f55f"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Service5f91134e-ddda-41ea-b7e5-df62a57e7baa"/>
+                           </assignment>
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment0fce21f4-a771-4a49-8d97-583fcaf70eae">
+                              <title>ErrorlogSearchResponse</title>
+                              <operation source="field" to="temp.t_SearchResponse">output.SearchErrorlogResponse</operation>
+                              <link id="sd1872dd9-4d4e-47b9-a853-85898a4b7f72"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Assignment396cde52-72e5-4f77-9b3f-7faf4ed4592e"/>
+                           </assignment>
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment396cde52-72e5-4f77-9b3f-7faf4ed4592e">
+                              <title>ErrorlogSearchResponse</title>
+                              <operation source="formula" to="temp.t_ErrorlogSourcePkey">
+                                 <expression language="XQuery">let $list := tokenize($temp.t_SearchResponse , "@@")
+return head($list)</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_ErrorlogDecision">
+                                 <expression language="XQuery">if (list:count(tokenize( $temp.t_SearchResponse , "@@")) = 0) then 'Empty' else 'Repeat'</expression>
+                              </operation>
+                              <link id="y19c44f80-ad04-4c5f-a888-177c9f4ebfed"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Decisionc6701d7e-3805-4138-a23d-466b76d447ec"/>
+                           </assignment>
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment74d3e8b5-9b46-48c7-bff3-87d45faad7a5">
+                              <title>mdmResponse</title>
+                              <operation source="field" to="temp.t_mdmUpdateResponse">output.UpdatePostResponse</operation>
+                              <operation source="field" to="output.sourcePkey">temp.t_sourcePkey</operation>
+                              <operation source="formula" to="output.Status">
+                                 <expression language="XQuery">"Update Success"</expression>
+                              </operation>
+                           </assignment>
+                           <service id="a13tBGhczWbD7fJQybttMZKK-Service5f91134e-ddda-41ea-b7e5-df62a57e7baa">
+                              <title>SearchErrorRecord</title>
+                              <serviceName>appConnectorB360:SearchRecord</serviceName>
+                              <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                 <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBody</parameter>
+                              </serviceInput>
+                              <link id="s3d7d3532-e2f2-42ea-a0ec-d0f933f4418e"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Assignment0fce21f4-a771-4a49-8d97-583fcaf70eae"/>
+                           </service>
+                           <container id="a13tBGhczWbD7fJQybttMZKK-Decisionc6701d7e-3805-4138-a23d-466b76d447ec"
+                                      type="exclusive">
+                              <title>t_ErrorlogDecision</title>
+                              <flow id="k389f4e42-e79a-4b8a-9b47-7c13f1dbf0d7">
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service3210840e-d1d0-42e2-a5ae-c87e37d03853">
+                                    <title>UpdateDQError_IsFixed</title>
+                                    <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="payload" source="field">temp.t_IsFixedUpdatePayload</parameter>
+                                       <parameter name="sourcePkey" source="field">temp.t_ErrorlogSourcePkey</parameter>
+                                       <parameter name="BusinessEntity" source="formula">
+                                          <expression language="XQuery">"errorlog"</expression>
+                                       </parameter>
+                                    </serviceInput>
+                                    <link id="y31e1188b-e5eb-4b1a-ac17-6b8c553fc6d7"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment83db87b8-f725-4edf-913f-275a63d201e3"/>
+                                 </service>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment83db87b8-f725-4edf-913f-275a63d201e3">
+                                    <title>IsfixedUpdateResponse</title>
+                                    <operation source="field" to="temp.t_mdmIsfixedResponse">output.DQErrorResponse</operation>
+                                    <link id="i77e93c50-d830-403e-a840-f6ece0b332b9"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment707ec20b-6dfa-4533-9ebc-be9f52c8e0ac"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment707ec20b-6dfa-4533-9ebc-be9f52c8e0ac">
+                                    <title>SearchResponsetail</title>
+                                    <operation source="formula" to="temp.t_SearchResponse">
+                                       <expression language="XQuery">string-join(tail(tokenize($temp.t_SearchResponse , "@@")), "@@")</expression>
+                                    </operation>
+                                    <link id="v88dfd2fc-6e91-4963-b5d3-ccd5974a1ea7"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Jumpc16bbb53-3a0b-4ec1-b815-2ad1ff0addb0"/>
+                                 </assignment>
+                                 <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jumpc16bbb53-3a0b-4ec1-b815-2ad1ff0addb0">
+                                    <link id="qe0b50f68-4b08-4e95-b884-338c7f570204"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment396cde52-72e5-4f77-9b3f-7faf4ed4592e"/>
+                                 </jumpTo>
+                              </flow>
+                              <flow id="w50799db6-708d-45e6-918a-9c6324c683e6">
+                                 <link id="rc392c473-ef79-44ae-a76e-37a7c54d5f4e"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-Decisionc6701d7e-3805-4138-a23d-466b76d447ec"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="hb82a7baf-bb63-4589-8503-46cc3e8a99fe"
+                                    targetId="k389f4e42-e79a-4b8a-9b47-7c13f1dbf0d7"
+                                    type="containerLink">
+                                 <condition source="formula">
+                                    <function name="contains">
+                                       <arg name="left">{$temp.t_ErrorlogDecision}</arg>
+                                       <arg name="right">Repeat</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="yfe6bdca6-0cac-48e9-a542-a797ebf30419"
+                                    targetId="w50799db6-708d-45e6-918a-9c6324c683e6"
+                                    type="containerLink"/>
+                              <link id="j42cc6249-5ee7-4982-a8b2-7d5eda474719"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Assignment74d3e8b5-9b46-48c7-bff3-87d45faad7a5"/>
+                           </container>
+                           <link id="j12915129-ce7f-4dd0-9591-12f42f3f8be7"
+                                 targetId="a13tBGhczWbD7fJQybttMZKK-Service3fdf34f3-fcff-4fa1-a76e-5768e318ba70"
+                                 type="containerLink"/>
+                        </flow>
+                        <flow id="j8c48531c-0e55-4d06-aac7-182b53ad61c1">
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentd92bfde2-a6fc-4d10-b428-f5128b03d3be">
+                              <title>FaultResponseForDQ</title>
+                              <operation source="formula" to="temp.t_UpdateResponseForDQ">
+                                 <expression language="XQuery">for $r in $output.faultInfo/reason
+return $r</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                 <expression language="XQuery">string-join(
+  for $msg in (&lt;root&gt;{util:parseJSON($temp.t_UpdateResponseForDQ )}&lt;/root&gt;)//details/message
+  return string($msg),
+  '@@'
+)</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_PicklistErrorDecision">
+                                 <expression language="XQuery">if(fn:starts-with( $temp.t_U_DQerrorMessage , 'E0')) then 'Yes' else 'No'</expression>
+                              </operation>
+                              <link id="neb30df10-6f77-49f4-8528-23e2701b1de0"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Decision1fa415a1-8f04-4caa-bbe7-fdd4f01f3a45"/>
+                           </assignment>
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentff700423-1e0c-4e7f-a52b-403b9393efb7">
+                              <title>Status ErrorCode</title>
+                              <operation source="formula" to="output.Status">
+                                 <expression language="XQuery">"Fail"</expression>
+                              </operation>
+                              <operation source="field" to="output.ErrorCode">temp.t_DQErrorCode</operation>
+                              <link id="n98c8d808-bcf7-44a1-b120-4cf56f50501b"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Throw450acd17-8f6c-4e56-9f7f-a2e4e87aecdb"/>
+                           </assignment>
+                           <container id="a13tBGhczWbD7fJQybttMZKK-Decision1fa415a1-8f04-4caa-bbe7-fdd4f01f3a45"
+                                      type="exclusive">
+                              <title>t_PicklistErrorDecision</title>
+                              <flow id="le176a163-f1f9-44da-a9f5-a7d87caacefe">
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment8a59e1b5-125d-4f75-b1bb-6be16e2b4443">
+                                    <title>ErrorlogPayload</title>
+                                    <operation source="formula" to="temp.t_ListDQError">
+                                       <expression language="XQuery">let $list := tokenize($temp.t_U_DQerrorMessage, "@@")
+return head($list)</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.t_CatsyID">temp.t_inputCatsyID</operation>
+                                    <operation source="formula" to="temp.t_XML_DQErrorMessaheFInal">
+                                       <expression language="XQuery">$temp.t_ListDQError</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorMessage">
+                                       <expression language="XQuery">replace( $temp.t_ListDQError , "^[^-]+ - [^-]+ -\s*", "")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorCode">
+                                       <expression language="XQuery">normalize-space(tokenize( $temp.t_ListDQError , "-")[1])</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorColumn">
+                                       <expression language="XQuery">normalize-space(tokenize( $temp.t_ListDQError , "-")[2])</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_RowIdentifierFinal">
+                                       <expression language="XQuery">concat($temp.t_CatsyID,'-', $temp.t_DQErrorCode )</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQRuleName">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then 'COG not Null' 
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Color not Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then 'Design not nulll'
+  else if ( $temp.t_DQErrorCode ='E004' ) then 'Dominance not Null'
+  else if ( $temp.t_DQErrorCode ='E005' ) then 'Effect not Null'
+  else if ( $temp.t_DQErrorCode ='E006' ) then 'Flavor not Null'
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Required for all products, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E010' ) then 'product line null , then product line 2 null'
+  else if ( $temp.t_DQErrorCode ='E011' ) then 'product name not Null'
+  else if ( $temp.t_DQErrorCode ='E012' ) then 'Ratio Null'
+  else if ( $temp.t_DQErrorCode ='E013' ) then 'Ratioed Cannabinoids Null'
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then 'scent not Null'
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Strain not Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then 'total package volum not Null'
+  else if ( $temp.t_DQErrorCode ='E019' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E020' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E021' ) then 'weight / size not Null'
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'wholesale cost not Null'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorValue">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then  $temp.t_cog  
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then $temp.t_design 
+  else if ( $temp.t_DQErrorCode ='E004' ) then $temp.t_dominance 
+  else if ( $temp.t_DQErrorCode ='E005' ) then $temp.t_effect
+  else if ( $temp.t_DQErrorCode ='E006' ) then $temp.t_flavor 
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E010' ) then $temp.t_product_line1 
+  else if ( $temp.t_DQErrorCode ='E011' ) then $temp.t_product_name 
+  else if ( $temp.t_DQErrorCode ='E012' ) then $temp.t_ratio 
+  else if ( $temp.t_DQErrorCode ='E013' ) then $temp.t_ratioed_cannabiniods 
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then $temp.t_scent 
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then $temp.t_total_package_volume
+  else if ( $temp.t_DQErrorCode ='E019' ) then $temp.t_unit_of_measure
+  else if ( $temp.t_DQErrorCode ='E020' ) then $temp.t_unit_of_measure 
+  else if ( $temp.t_DQErrorCode ='E021' ) then $temp.t_weight_size 
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'Null'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorPayload">
+                                       <expression language="XQuery">concat(
+  '{',
+    '"rowidentifier": "', $temp.t_RowIdentifierFinal , '", ',
+    '"catsyid": "', $temp.t_inputCatsyID , '", ',
+    '"userid": "xyz", ',
+    '"entity_type": "State", ',
+    '"dqrule": "', $temp.t_DQRuleName, '", ',
+    '"errorcolumn": "', $temp.t_DQErrorColumn, '", ',
+    '"errorvalue": "', $temp.t_DQErrorValue , '", ',
+    '"dqerrorcode": "', $temp.t_DQErrorCode, '", ',
+    '"dqerrordesc": "', $temp.t_DQErrorMessage, '", ',
+    '"isfixed": "false", ',
+    '"insertdate": "', string(current-dateTime()), '", ',
+    '"updatedate": "', string(current-dateTime()), '"',
+ ' }'
+)</expression>
+                                    </operation>
+                                    <link id="od7b7b592-4d75-4cab-96da-c9a7b1d2f21e"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment3f62bd3d-b866-4d81-a057-941c772e2886"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment3f62bd3d-b866-4d81-a057-941c772e2886">
+                                    <title>ErrorlogSearchBodyforUpdateDate</title>
+                                    <operation source="formula" to="temp.t_ErrorlogSearchBodyforUpdateDate">
+                                       <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.rowidentifier":"'|| $temp.t_RowIdentifierFinal ||'"} }'</expression>
+                                    </operation>
+                                    <link id="mc0191fee-7890-445d-b37f-c55646545781"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Service14746e16-e14e-47c0-8288-50b65c5b1499"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmente82f7a25-1143-4400-a6d7-3fa13b642633">
+                                    <title>ErrorlogSearchResponse</title>
+                                    <operation source="field" to="temp.t_ErrorlogUpdatedateSearchResponse">output.SearchErrorlogResponse</operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedateDecision">
+                                       <expression language="XQuery">if (
+  some $id in tokenize($temp.t_ErrorlogUpdatedateSearchResponse, "@@")
+  satisfies $id = $temp.t_RowIdentifierFinal
+)
+then 'Yes'
+else 'No'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedatePayload">
+                                       <expression language="XQuery">'[ 
+    { 
+        "op": "replace", 
+        "path": "updatedate",  
+        "value": "' || string(current-dateTime()) || '" 
+    } 
+]'</expression>
+                                    </operation>
+                                    <link id="v9d97f4ef-bac9-41a1-87e7-0fe76696b5a4"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decision4df1958a-0f1a-4e92-9876-3e5c0723564a"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment44605a23-67e4-4b2a-930b-431a66237e63">
+                                    <title>DQErrorResponse</title>
+                                    <operation source="formula" to="temp.t_mdmDQErrorResponse">
+                                       <expression language="XQuery">'1'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_updateDecision">
+                                       <expression language="XQuery">if (list:count(tokenize($temp.t_U_DQerrorMessage, "@@"))-1 = 0) then 'Empty' else 'Repeat'</expression>
+                                    </operation>
+                                    <link id="d9dcb695b-09ce-4579-9e77-3c7d58c87fa3"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decisiond61a7bde-8778-4644-adc3-8c581576166c"/>
+                                 </assignment>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service14746e16-e14e-47c0-8288-50b65c5b1499">
+                                    <title>SearchErrorRecord</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBodyforUpdateDate</parameter>
+                                    </serviceInput>
+                                    <link id="fcc7cdf06-c55a-4eeb-ae82-70dc76c98a4a"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignmente82f7a25-1143-4400-a6d7-3fa13b642633"/>
+                                 </service>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decision4df1958a-0f1a-4e92-9876-3e5c0723564a"
+                                            type="exclusive">
+                                    <title>t_ErrorlogUpdatedateDecision</title>
+                                    <flow id="rf3b23e75-001d-4331-b0e5-0f0ea7e8ddb4">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Servicef9edca6c-e2ce-4b13-a0e8-c8e8326e3a64">
+                                          <title>createDQErrorRecord</title>
+                                          <serviceName>appConnectorB360:InsertErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                       </service>
+                                       <link id="d1bd5878e-53e8-4cea-8a45-6fbf8a7e9499"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision4df1958a-0f1a-4e92-9876-3e5c0723564a"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <flow id="e4e70c86b-ba82-4bdd-ac9a-de98d693adb3">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Servicec2c63f34-a1cd-4e80-9544-3f679d65308c">
+                                          <title>UpdateDQError_Updatedate</title>
+                                          <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_ErrorlogUpdatedatePayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">"errorlog"</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="z9c1c7650-8242-4db0-bb08-5bf38cd00e53"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment5eb1031c-fb35-4c5b-80bb-6f1426d30033"/>
+                                       </service>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment5eb1031c-fb35-4c5b-80bb-6f1426d30033">
+                                          <title>UpdatedateUpdateResponse</title>
+                                          <operation source="formula" to="temp.t_ErrorlogUpdatedateUpdateResponse">
+                                             <expression language="XQuery">'1'</expression>
+                                          </operation>
+                                       </assignment>
+                                       <link id="l74a6a380-279a-4ffb-934a-2f9468f56f4b"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision4df1958a-0f1a-4e92-9876-3e5c0723564a"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="c3a986abe-552b-4bf9-9e65-e25c4bc100b8"
+                                          targetId="rf3b23e75-001d-4331-b0e5-0f0ea7e8ddb4"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_ErrorlogUpdatedateDecision}</arg>
+                                             <arg name="right">No</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="s3f8793e0-a293-4556-bb91-642eff8f6fdf"
+                                          targetId="e4e70c86b-ba82-4bdd-ac9a-de98d693adb3"
+                                          type="containerLink"/>
+                                    <link id="ma2b52ff1-b4a1-434c-81f6-9ce6c3191893"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment44605a23-67e4-4b2a-930b-431a66237e63"/>
+                                 </container>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decisiond61a7bde-8778-4644-adc3-8c581576166c"
+                                            type="exclusive">
+                                    <title>t_updateDecision</title>
+                                    <flow id="i64c53572-537b-4dbf-8155-cf0908f0be55">
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment86376ffc-5d52-4700-8a52-9ab19e3667bb">
+                                          <title>DQerrorMessagetail</title>
+                                          <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                             <expression language="XQuery">string-join(tail(tokenize($temp.t_U_DQerrorMessage, "@@")), "@@")</expression>
+                                          </operation>
+                                          <operation source="formula" to="temp.t_insertDecision">
+                                             <expression language="XQuery">list:tail( $temp.t_U_DQerrorMessage )</expression>
+                                          </operation>
+                                          <link id="k496511d0-fb1b-40c4-881f-50e218b77a4c"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Jump68244e55-9a94-4e99-87e2-a8b6ee1d3902"/>
+                                       </assignment>
+                                       <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jump68244e55-9a94-4e99-87e2-a8b6ee1d3902">
+                                          <link id="nba3b3190-31f6-4926-ac22-5a30e53cac1f"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment8a59e1b5-125d-4f75-b1bb-6be16e2b4443"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="sa4c4f281-ac9a-4e3f-bb4e-634a75d93150">
+                                       <link id="r6564c864-97e8-4465-8e11-6362b27391e7"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisiond61a7bde-8778-4644-adc3-8c581576166c"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="i0a674e7b-0264-407d-88e3-5a4e55237dba"
+                                          targetId="i64c53572-537b-4dbf-8155-cf0908f0be55"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_updateDecision}</arg>
+                                             <arg name="right">Repeat</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="xda32a6c6-9b91-4962-bdcc-25333a9501ed"
+                                          targetId="sa4c4f281-ac9a-4e3f-bb4e-634a75d93150"
+                                          type="containerLink"/>
+                                 </container>
+                                 <link id="f91942672-660e-47bb-a2a3-2b4de2c90c94"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-Decision1fa415a1-8f04-4caa-bbe7-fdd4f01f3a45"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="j6225cbb4-4dc0-4577-9a7f-9d1f7303ad5c">
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentaf1c2914-d5a5-4eb4-92c9-b5014dd7662f">
+                                    <title>PicklistErrorlogPayload</title>
+                                    <operation source="formula" to="temp.t_ListDQError">
+                                       <expression language="XQuery">let $list := tokenize($temp.t_U_DQerrorMessage, "@@")
+return head($list)</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.t_CatsyID">temp.t_inputCatsyID</operation>
+                                    <operation source="formula" to="temp.t_DQErrorMessage">
+                                       <expression language="XQuery">$temp.t_ListDQError</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorCode">
+                                       <expression language="XQuery">'E023'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorColumn">
+                                       <expression language="XQuery">let $value :=
+(let $msg := $temp.t_ListDQError 
+let $after := substring-after($msg, "lookup field path ")
+return substring-before($after, "."))
+return if (normalize-space($value) = '') then 'Null' else $value</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_RowIdentifierFinal">
+                                       <expression language="XQuery">concat($temp.t_CatsyID,'-',$temp.t_DQErrorCode)</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQRuleName">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then 'COG not Null' 
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Color not Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then 'Design not nulll'
+  else if ( $temp.t_DQErrorCode ='E004' ) then 'Dominance not Null'
+  else if ( $temp.t_DQErrorCode ='E005' ) then 'Effect not Null'
+  else if ( $temp.t_DQErrorCode ='E006' ) then 'Flavor not Null'
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Required for all products, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E010' ) then 'product line null , then product line 2 null'
+  else if ( $temp.t_DQErrorCode ='E011' ) then 'product name not Null'
+  else if ( $temp.t_DQErrorCode ='E012' ) then 'Ratio Null'
+  else if ( $temp.t_DQErrorCode ='E013' ) then 'Ratioed Cannabinoids Null'
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then 'scent not Null'
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Strain not Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then 'total package volum not Null'
+  else if ( $temp.t_DQErrorCode ='E019' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E020' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E021' ) then 'weight / size not Null'
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'wholesale cost not Null'
+  else if ( $temp.t_DQErrorCode ='E023' ) then 'Picklist Field Error'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorValue">
+                                       <expression language="XQuery">let $value :=
+(let $msg := $temp.t_ListDQError 
+let $after := substring-after($msg, "The code value ")
+return substring-before($after, " does not exist"))
+return if (normalize-space($value) = '') then 'Null' else $value</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorPayload">
+                                       <expression language="XQuery">concat(
+  '{',
+    '"rowidentifier": "', $temp.t_RowIdentifierFinal , '", ',
+    '"catsyid": "', $temp.t_inputCatsyID , '", ',
+    '"userid": "xyz", ',
+    '"entity_type": "State", ',
+    '"dqrule": "', $temp.t_DQRuleName, '", ',
+    '"errorcolumn": "', $temp.t_DQErrorColumn, '", ',
+    '"errorvalue": "', $temp.t_DQErrorValue , '", ',
+    '"dqerrorcode": "', $temp.t_DQErrorCode, '", ',
+    '"dqerrordesc": "', $temp.t_DQErrorMessage, '", ',
+    '"isfixed": "false", ',
+    '"insertdate": "', string(current-dateTime()), '", ',
+    '"updatedate": "', string(current-dateTime()), '"',
+ ' }'
+)</expression>
+                                    </operation>
+                                    <link id="za41672e8-c960-45c2-9e55-7582356f4f60"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment13b06967-5cd0-4eca-aeca-8be1c29304e3"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment13b06967-5cd0-4eca-aeca-8be1c29304e3">
+                                    <title>ErrorlogSearchBodyforUpdateDate 2</title>
+                                    <operation source="formula" to="temp.t_ErrorlogSearchBodyforUpdateDate">
+                                       <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.rowidentifier":"'|| $temp.t_RowIdentifierFinal ||'"} }'</expression>
+                                    </operation>
+                                    <link id="rab46f0a6-371f-4b6b-a9e3-0609ec95895b"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Service73d2ed36-da64-4149-9c47-5372618ceb77"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment4d5d60b7-d036-486c-be6d-5f6d7437c4b2">
+                                    <title>ErrorlogSearchResponse 2</title>
+                                    <operation source="field" to="temp.t_ErrorlogUpdatedateSearchResponse">output.SearchErrorlogResponse</operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedateDecision">
+                                       <expression language="XQuery">if (
+  some $id in tokenize($temp.t_ErrorlogUpdatedateSearchResponse, "@@")
+  satisfies $id = $temp.t_RowIdentifierFinal
+)
+then 'Yes'
+else 'No'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedatePayload">
+                                       <expression language="XQuery">'[ 
+    { 
+        "op": "replace", 
+        "path": "updatedate",  
+        "value": "' || string(current-dateTime()) || '" 
+    } 
+]'</expression>
+                                    </operation>
+                                    <link id="e47915933-73ce-470a-89ab-072c1642245f"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decisiond9c59db5-e2a1-47d1-92bf-810adae72b34"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment69cfeb84-3f24-4a23-98f3-ceef36f85fc0">
+                                    <title>DQErrorResponse 2</title>
+                                    <operation source="formula" to="temp.t_mdmDQErrorResponse">
+                                       <expression language="XQuery">'1'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_updateDecision">
+                                       <expression language="XQuery">if (list:count(tokenize($temp.t_U_DQerrorMessage, "@@"))-1 = 0) then 'Empty' else 'Repeat'</expression>
+                                    </operation>
+                                    <link id="padb7325c-0015-4f9b-bf80-1b96dceb6d80"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decision1fa3c787-69d3-4b81-9bf6-8f60b355273a"/>
+                                 </assignment>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service73d2ed36-da64-4149-9c47-5372618ceb77">
+                                    <title>SearchErrorRecord 2</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBodyforUpdateDate</parameter>
+                                    </serviceInput>
+                                    <link id="v6c2776f5-427d-42f8-ab4e-d76b252b1a12"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment4d5d60b7-d036-486c-be6d-5f6d7437c4b2"/>
+                                 </service>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decisiond9c59db5-e2a1-47d1-92bf-810adae72b34"
+                                            type="exclusive">
+                                    <title>t_ErrorlogUpdatedateDecision 2</title>
+                                    <flow id="xb6888a78-0d27-4061-8e7f-39215e65569c">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Service9f902ad2-f645-4000-8d75-655c375310ed">
+                                          <title>createDQErrorRecord 2</title>
+                                          <serviceName>appConnectorB360:InsertErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_DQErrorPayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">'errorlog'</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                       </service>
+                                       <link id="j8e207505-9919-461b-b4e9-6f15f1245f9c"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisiond9c59db5-e2a1-47d1-92bf-810adae72b34"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <flow id="i7cc967ee-214b-4bb9-8c63-0fb39098b243">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Servicebefa9456-d2dc-4902-9e17-75781ec96f39">
+                                          <title>UpdateDQError_Updatedate 2</title>
+                                          <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_ErrorlogUpdatedatePayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">"errorlog"</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="e2eeea3f5-a907-4bad-9835-5521eb7c071c"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment83c96cc6-ffaf-443a-8d64-56a59ec741ee"/>
+                                       </service>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment83c96cc6-ffaf-443a-8d64-56a59ec741ee">
+                                          <title>UpdatedateUpdateResponse 2</title>
+                                          <operation source="formula" to="temp.t_ErrorlogUpdatedateUpdateResponse">
+                                             <expression language="XQuery">'1'</expression>
+                                          </operation>
+                                       </assignment>
+                                       <link id="f20fa874d-f342-49e0-9737-b8bbe60ce7c5"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisiond9c59db5-e2a1-47d1-92bf-810adae72b34"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="ae99d47bf-9d6b-422e-b6e5-ef0d573a62d4"
+                                          targetId="xb6888a78-0d27-4061-8e7f-39215e65569c"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_ErrorlogUpdatedateDecision}</arg>
+                                             <arg name="right">No</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="o16eafa04-d298-4c63-a418-f78576fe2693"
+                                          targetId="i7cc967ee-214b-4bb9-8c63-0fb39098b243"
+                                          type="containerLink"/>
+                                    <link id="a4ff7bd20-79cd-4eda-9d5a-acd82dec6cb5"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment69cfeb84-3f24-4a23-98f3-ceef36f85fc0"/>
+                                 </container>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decision1fa3c787-69d3-4b81-9bf6-8f60b355273a"
+                                            type="exclusive">
+                                    <title>t_updateDecision 2</title>
+                                    <flow id="pd363db1d-1d80-4034-818a-b4596590a98b">
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentb1f8e228-c12d-464b-bac6-8df220590110">
+                                          <title>DQerrorMessagetail 2</title>
+                                          <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                             <expression language="XQuery">string-join(tail(tokenize($temp.t_U_DQerrorMessage, "@@")), "@@")</expression>
+                                          </operation>
+                                          <operation source="formula" to="temp.t_insertDecision">
+                                             <expression language="XQuery">list:tail( $temp.t_U_DQerrorMessage )</expression>
+                                          </operation>
+                                          <link id="c9a5c4c80-30a0-4a3c-a87e-9c38fcc2e9a5"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Jump5b10dc3b-e6c4-4373-bd30-5e8cae2c1a31"/>
+                                       </assignment>
+                                       <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jump5b10dc3b-e6c4-4373-bd30-5e8cae2c1a31">
+                                          <link id="p208c26f9-feb3-4794-adf9-c58d42b291d1"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentaf1c2914-d5a5-4eb4-92c9-b5014dd7662f"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="bde40ac6d-4c21-46e0-ac2d-76f0461289bc">
+                                       <link id="tab9f37c3-8800-4d61-a03f-c6bd98c72d62"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision1fa3c787-69d3-4b81-9bf6-8f60b355273a"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="p710cefe5-a862-4273-8958-f2476f92554a"
+                                          targetId="pd363db1d-1d80-4034-818a-b4596590a98b"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_updateDecision}</arg>
+                                             <arg name="right">Repeat</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="s0b313ab4-3b89-4702-a8ad-91cc43f341d4"
+                                          targetId="bde40ac6d-4c21-46e0-ac2d-76f0461289bc"
+                                          type="containerLink"/>
+                                 </container>
+                                 <link id="b13ed5384-bc0c-4893-a2e3-5b9d6d77b5db"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-Decision1fa415a1-8f04-4caa-bbe7-fdd4f01f3a45"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="g94dacfba-2037-47da-b635-f7437e6a89ab"
+                                    targetId="le176a163-f1f9-44da-a9f5-a7d87caacefe"
+                                    type="containerLink">
+                                 <condition source="formula">
+                                    <function name="contains">
+                                       <arg name="left">{$temp.t_PicklistErrorDecision}</arg>
+                                       <arg name="right">Yes</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="t355e11eb-851c-4a81-8a8f-5dc907523f16"
+                                    targetId="j6225cbb4-4dc0-4577-9a7f-9d1f7303ad5c"
+                                    type="containerLink"/>
+                              <link id="n4ea3c2c9-17cf-4d1b-9ab7-386b18f25062"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentff700423-1e0c-4e7f-a52b-403b9393efb7"/>
+                           </container>
+                           <throw id="a13tBGhczWbD7fJQybttMZKK-Throw450acd17-8f6c-4e56-9f7f-a2e4e87aecdb">
+                              <title>Throw 1</title>
+                              <throwInput>
+                                 <parameter name="code" source="formula" updatable="true">
+                                    <expression language="XQuery">'500'</expression>
+                                 </parameter>
+                                 <parameter name="detail" source="formula" updatable="true">
+                                    <expression language="XQuery">'Update Fail'</expression>
+                                 </parameter>
+                                 <parameter name="reason" source="field" updatable="true">temp.t_DQErrorMessage</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="j15db9920-fbc3-42d4-87ae-f1bbe7888de1"
+                              targetId="t8c8e9297-cb24-4e79-9430-9f6b26fa73e5"
+                              type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo"
+                                  id="j5df383cc-8350-403a-980b-963da46ef1d9"
+                                  interrupting="true">
+                              <link id="re41b1064-8fa2-4dc3-bf17-bcd1d4cabb2b"
+                                    targetId="j8c48531c-0e55-4d06-aac7-182b53ad61c1"
+                                    type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <link id="dfac575d3-fadb-4204-92e5-90741fd292c2"
+                           targetId="a13tBGhczWbD7fJQybttMZKK-Decisionc83853da-aef2-4dd6-851b-d6426d017a2e"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="cd474283b-8d0c-44e9-b85d-eb0993eb8dfa">
+                     <eventContainer id="a13tBGhczWbD7fJQybttMZKK-Service3898951e-7f0c-4e6d-ae6c-86523fc42c8d">
+                        <service id="n451210fc-8f63-450d-83a7-0495da23822a">
+                           <title>InsertRecord</title>
+                           <serviceName>appConnectorB360:InsertRecord</serviceName>
+                           <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                           <serviceInput>
+                              <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                              <parameter name="payload" source="field">temp.t_FinalPayload</parameter>
+                              <parameter name="sourcePkey" source="field">temp.t_sourcePkey</parameter>
+                              <parameter name="BusinessEntity" source="formula">
+                                 <expression language="XQuery">'state_finished_product'</expression>
+                              </parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="h4bf36e84-2e77-4808-a22a-e6cd848e0472">
+                           <container id="a13tBGhczWbD7fJQybttMZKK-ParallelPath4061d7c9-dfb8-4157-88c5-b37d7537545b"
+                                      type="parallel">
+                              <title>Parallel Paths 2</title>
+                              <flow id="a54df2297-068c-4e5c-83c6-0c2111db088a">
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service4a7182a5-b6fc-4d6d-99d0-de8250e7458a">
+                                    <title>Capture Global_businessID</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_parentIDsearchBody</parameter>
+                                    </serviceInput>
+                                    <link id="ie15016e6-e430-4c79-ae1a-96ad43213fcd"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment81ab9695-7d49-4457-bf53-da3b1726010c"/>
+                                 </service>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service937fec60-9827-48b2-a0a1-70c23187d33a">
+                                    <title>Relationship</title>
+                                    <serviceName>appConnectorB360:Relationship</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="payload" source="field">temp.t_RelationshipPayload</parameter>
+                                    </serviceInput>
+                                    <link id="jb41a1c87-92ef-42c6-b9a9-6abf8f982da2"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment3d3b7f2c-2831-4a8e-a108-4deca4647d53"/>
+                                 </service>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment81ab9695-7d49-4457-bf53-da3b1726010c">
+                                    <title>Assignment to t_RelationshipPayload</title>
+                                    <operation source="formula" to="temp.t_StatebusinessID">
+                                       <expression language="XQuery">$output.CaptureBusinessID</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_GlobalbusinessID">
+                                       <expression language="XQuery">$output.capturedbusinessID</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_RelationshipPayload">
+                                       <expression language="XQuery">'{ "_to": { "businessEntity": "state_finished_product", "businessId": "' || $temp.t_StatebusinessID || '" }, "_from": { "businessEntity": "global_finished_product", "businessId":  "' || $temp.t_GlobalbusinessID || '" } }'</expression>
+                                    </operation>
+                                    <link id="w1fb10a25-fd09-4884-ac69-c9c20da6e8a1"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Service937fec60-9827-48b2-a0a1-70c23187d33a"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment3d3b7f2c-2831-4a8e-a108-4deca4647d53">
+                                    <title>Assignment to t_RelationshipBusinessID</title>
+                                    <operation source="formula" to="temp.t_RelationshipBusinessID">
+                                       <expression language="XQuery">$output.Relationship_businessID</expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="u72ede948-033e-4953-8129-491718f975ab"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-ParallelPath4061d7c9-dfb8-4157-88c5-b37d7537545b"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="tc73701a1-47c8-4116-94ab-2dbec7eece85">
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment94c3c308-c411-4cec-ac05-58a3b469d838">
+                                    <title>IsFixedUpdatePayload 1</title>
+                                    <operation source="formula" to="temp.t_IsFixedUpdatePayload">
+                                       <expression language="XQuery">'[
+    {
+        "op": "replace",
+        "path": "isfixed",
+        "value": "true"
+    },
+    {
+        "op": "replace",
+        "path": "updatedate",
+        "value": "' || string(current-dateTime()) || '" 
+    }
+]'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogSearchBody">
+                                       <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.catsyid":"'|| $temp.t_inputCatsyID ||'"} }'</expression>
+                                    </operation>
+                                    <link id="w0675b22a-490f-4112-939d-5c5ad260d11e"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Service5fefe5aa-8b0e-407d-9adc-df6799f6ec53"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment631fb44d-2d44-47a7-a2e2-db8c624bb94c">
+                                    <title>ErrorlogSearchResponse 3</title>
+                                    <operation source="field" to="temp.t_SearchResponse">output.SearchErrorlogResponse</operation>
+                                    <link id="e14c39555-caf2-4980-8fd8-50008170462a"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentf3e66ff2-f3ca-4fd5-9433-26320f21f197"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentf3e66ff2-f3ca-4fd5-9433-26320f21f197">
+                                    <title>ErrorlogSearchResponse 4</title>
+                                    <operation source="formula" to="temp.t_ErrorlogSourcePkey">
+                                       <expression language="XQuery">let $list := tokenize($temp.t_SearchResponse , "@@")
+return head($list)</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogDecision">
+                                       <expression language="XQuery">if (list:count(tokenize( $temp.t_SearchResponse , "@@")) = 0) then 'Empty' else 'Repeat'</expression>
+                                    </operation>
+                                    <link id="p3309b063-b254-4b76-8e27-6379578bdc1b"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decision077257a8-05a7-48e6-894c-ba1ed391a1f9"/>
+                                 </assignment>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Service5fefe5aa-8b0e-407d-9adc-df6799f6ec53">
+                                    <title>SearchErrorRecord 3</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBody</parameter>
+                                    </serviceInput>
+                                    <link id="efcc3c437-6694-47be-b713-63239068d21c"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment631fb44d-2d44-47a7-a2e2-db8c624bb94c"/>
+                                 </service>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decision077257a8-05a7-48e6-894c-ba1ed391a1f9"
+                                            type="exclusive">
+                                    <title>t_ErrorlogDecision 1</title>
+                                    <flow id="eb874716d-82ba-4dd3-a92f-c33ceda7244b">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Servicec575c8a4-be4d-4c59-982d-e345a11b9142">
+                                          <title>UpdateDQError_IsFixed 1</title>
+                                          <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_IsFixedUpdatePayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_ErrorlogSourcePkey</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">"errorlog"</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="sab9235bf-5076-4951-9077-8cced83271a4"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentcaac03ae-1208-4142-8d5f-1340a99fdf03"/>
+                                       </service>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentcaac03ae-1208-4142-8d5f-1340a99fdf03">
+                                          <title>IsfixedUpdateResponse 1</title>
+                                          <operation source="field" to="temp.t_mdmIsfixedResponse">output.DQErrorResponse</operation>
+                                          <link id="ue496223f-0819-4ced-94e3-c2a877e0d61b"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment26ceb3ff-4f6c-49dc-8f27-e437245724ef"/>
+                                       </assignment>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment26ceb3ff-4f6c-49dc-8f27-e437245724ef">
+                                          <title>SearchResponsetail 1</title>
+                                          <operation source="formula" to="temp.t_SearchResponse">
+                                             <expression language="XQuery">string-join(tail(tokenize($temp.t_SearchResponse , "@@")), "@@")</expression>
+                                          </operation>
+                                          <link id="kac45a010-4cab-43bd-989a-a49c7030b180"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Jumpdee9495c-79fb-415b-a4d7-ff5de5c6da8c"/>
+                                       </assignment>
+                                       <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jumpdee9495c-79fb-415b-a4d7-ff5de5c6da8c">
+                                          <link id="a195dcace-5975-4acc-9c19-7a3caa08fb68"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentf3e66ff2-f3ca-4fd5-9433-26320f21f197"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="c1e35e83d-1ffc-4c48-99bc-58b280eb31d5">
+                                       <link id="b40e0a7a6-948c-4e7f-9145-58ef9fb7ed1f"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision077257a8-05a7-48e6-894c-ba1ed391a1f9"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="pcb8a7df5-c9ca-4a77-8784-1865554e82f4"
+                                          targetId="eb874716d-82ba-4dd3-a92f-c33ceda7244b"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_ErrorlogDecision}</arg>
+                                             <arg name="right">Repeat</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="of5bbb249-ff48-4c32-9a8a-8984dcfd27d9"
+                                          targetId="c1e35e83d-1ffc-4c48-99bc-58b280eb31d5"
+                                          type="containerLink"/>
+                                 </container>
+                                 <link id="ce285ebd4-c2cb-42f8-93df-41bbe0a2f8a8"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-ParallelPath4061d7c9-dfb8-4157-88c5-b37d7537545b"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="h9a886d00-79a0-4446-a4e3-74450fd36c3e"
+                                    targetId="a54df2297-068c-4e5c-83c6-0c2111db088a"
+                                    type="containerLink"/>
+                              <link id="bf0dc06fc-3962-491b-af60-22ac6298c5e4"
+                                    targetId="tc73701a1-47c8-4116-94ab-2dbec7eece85"
+                                    type="containerLink"/>
+                           </container>
+                           <link id="c57b0a4e3-2a16-4a27-a2fd-06438cf59426"
+                                 targetId="a13tBGhczWbD7fJQybttMZKK-Service3898951e-7f0c-4e6d-ae6c-86523fc42c8d"
+                                 type="containerLink"/>
+                        </flow>
+                        <flow id="d0ca43d85-31b9-4b7c-99a0-96a72de30ef8">
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment981d1074-c8f2-496a-9167-9df4d6d5d7fa">
+                              <title>FaultResponseForDQ 1</title>
+                              <operation source="formula" to="temp.t_UpdateResponseForDQ">
+                                 <expression language="XQuery">for $r in $output.faultInfoInsert[1]/reason 
+return $r</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                 <expression language="XQuery">string-join(
+  for $msg in (&lt;root&gt;{util:parseJSON($temp.t_UpdateResponseForDQ )}&lt;/root&gt;)//details/message
+  return string($msg),
+  '@@'
+)</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_PicklistErrorDecision">
+                                 <expression language="XQuery">if(fn:starts-with( $temp.t_U_DQerrorMessage , 'E0')) then 'Yes' else 'No'</expression>
+                              </operation>
+                              <link id="j0699ef50-6ed5-4d1e-a53c-c36189caf97d"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Decision453b34eb-82a3-43b3-8c0a-c55d938143fd"/>
+                           </assignment>
+                           <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment0b1c0265-d3df-418d-a0a8-a2fc2279b493">
+                              <title>Status ErrorCode 1</title>
+                              <operation source="formula" to="output.Status">
+                                 <expression language="XQuery">"Fail"</expression>
+                              </operation>
+                              <operation source="field" to="output.ErrorCode">temp.t_DQErrorCode</operation>
+                              <link id="x75c5e4db-cfb2-4524-85b4-8f0b2065cfe6"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Throwcd70afda-7ec1-4f22-b681-8930df617aa6"/>
+                           </assignment>
+                           <container id="a13tBGhczWbD7fJQybttMZKK-Decision453b34eb-82a3-43b3-8c0a-c55d938143fd"
+                                      type="exclusive">
+                              <title>t_PicklistErrorDecision</title>
+                              <flow id="gcbb34376-9518-4063-aa33-b5f7c38a07f2">
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment1a0f85cd-5cc6-49b4-828a-5671dc3b67e8">
+                                    <title>ErrorlogPayload 1</title>
+                                    <operation source="formula" to="temp.t_ListDQError">
+                                       <expression language="XQuery">let $list := tokenize($temp.t_U_DQerrorMessage, "@@")
+return head($list)</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.t_CatsyID">temp.t_inputCatsyID</operation>
+                                    <operation source="formula" to="temp.t_XML_DQErrorMessaheFInal">
+                                       <expression language="XQuery">$temp.t_ListDQError</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorMessage">
+                                       <expression language="XQuery">replace( $temp.t_ListDQError , "^[^-]+ - [^-]+ -\s*", "")</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorCode">
+                                       <expression language="XQuery">normalize-space(tokenize( $temp.t_ListDQError , "-")[1])</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorColumn">
+                                       <expression language="XQuery">normalize-space(tokenize( $temp.t_ListDQError , "-")[2])</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_RowIdentifierFinal">
+                                       <expression language="XQuery">concat($temp.t_CatsyID,'-', $temp.t_DQErrorCode )</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQRuleName">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then 'COG not Null' 
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Color not Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then 'Design not nulll'
+  else if ( $temp.t_DQErrorCode ='E004' ) then 'Dominance not Null'
+  else if ( $temp.t_DQErrorCode ='E005' ) then 'Effect not Null'
+  else if ( $temp.t_DQErrorCode ='E006' ) then 'Flavor not Null'
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Required for all products, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E010' ) then 'product line null , then product line 2 null'
+  else if ( $temp.t_DQErrorCode ='E011' ) then 'product name not Null'
+  else if ( $temp.t_DQErrorCode ='E012' ) then 'Ratio Null'
+  else if ( $temp.t_DQErrorCode ='E013' ) then 'Ratioed Cannabinoids Null'
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then 'scent not Null'
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Strain not Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then 'total package volum not Null'
+  else if ( $temp.t_DQErrorCode ='E019' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E020' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E021' ) then 'weight / size not Null'
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'wholesale cost not Null'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorValue">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then  $temp.t_cog  
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then $temp.t_design 
+  else if ( $temp.t_DQErrorCode ='E004' ) then $temp.t_dominance 
+  else if ( $temp.t_DQErrorCode ='E005' ) then $temp.t_effect
+  else if ( $temp.t_DQErrorCode ='E006' ) then $temp.t_flavor 
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E010' ) then $temp.t_product_line1 
+  else if ( $temp.t_DQErrorCode ='E011' ) then $temp.t_product_name 
+  else if ( $temp.t_DQErrorCode ='E012' ) then $temp.t_ratio 
+  else if ( $temp.t_DQErrorCode ='E013' ) then $temp.t_ratioed_cannabiniods 
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then $temp.t_scent 
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then $temp.t_total_package_volume
+  else if ( $temp.t_DQErrorCode ='E019' ) then $temp.t_unit_of_measure
+  else if ( $temp.t_DQErrorCode ='E020' ) then $temp.t_unit_of_measure 
+  else if ( $temp.t_DQErrorCode ='E021' ) then $temp.t_weight_size 
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'Null'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorPayload">
+                                       <expression language="XQuery">concat(
+  '{',
+    '"rowidentifier": "', $temp.t_RowIdentifierFinal , '", ',
+    '"catsyid": "', $temp.t_inputCatsyID , '", ',
+    '"userid": "xyz", ',
+    '"entity_type": "State", ',
+    '"dqrule": "', $temp.t_DQRuleName, '", ',
+    '"errorcolumn": "', $temp.t_DQErrorColumn, '", ',
+    '"errorvalue": "', $temp.t_DQErrorValue , '", ',
+    '"dqerrorcode": "', $temp.t_DQErrorCode, '", ',
+    '"dqerrordesc": "', $temp.t_DQErrorMessage, '", ',
+    '"isfixed": "false", ',
+    '"insertdate": "', string(current-dateTime()), '", ',
+    '"updatedate": "', string(current-dateTime()), '"',
+ ' }'
+)</expression>
+                                    </operation>
+                                    <link id="h6ee860da-6d67-45f5-a4bd-486d6513c1ff"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment240b6547-4203-446c-bc12-31fc2554bd76"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment240b6547-4203-446c-bc12-31fc2554bd76">
+                                    <title>ErrorlogSearchBodyforUpdateDate 1</title>
+                                    <operation source="formula" to="temp.t_ErrorlogSearchBodyforUpdateDate">
+                                       <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.rowidentifier":"'|| $temp.t_RowIdentifierFinal ||'"} }'</expression>
+                                    </operation>
+                                    <link id="a2a7248d5-e1e3-4882-930b-0d31600b4618"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Serviceb1778591-edb7-4d7e-87f1-8ce56d78df32"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentf344ee03-7f2c-489f-bb7a-91c1f55fb7bf">
+                                    <title>ErrorlogSearchResponse 1</title>
+                                    <operation source="field" to="temp.t_ErrorlogUpdatedateSearchResponse">output.SearchErrorlogResponse</operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedateDecision">
+                                       <expression language="XQuery">if (
+  some $id in tokenize($temp.t_ErrorlogUpdatedateSearchResponse, "@@")
+  satisfies $id = $temp.t_RowIdentifierFinal
+)
+then 'Yes'
+else 'No'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedatePayload">
+                                       <expression language="XQuery">'[ 
+    { 
+        "op": "replace", 
+        "path": "updatedate",  
+        "value": "' || string(current-dateTime()) || '" 
+    } 
+]'</expression>
+                                    </operation>
+                                    <link id="s81c185bc-b82a-485c-adc0-d5aa8c12eb7e"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decision35a9f61a-7e21-4f2c-af08-16d36ce84950"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmenta991807a-61d2-4500-9dd0-075a43f1a05d">
+                                    <title>DQErrorResponse 1</title>
+                                    <operation source="field" to="temp.t_mdmDQErrorResponse">output.InsertRecordResponse</operation>
+                                    <operation source="formula" to="temp.t_updateDecision">
+                                       <expression language="XQuery">if (list:count(tokenize($temp.t_U_DQerrorMessage, "@@"))-1 = 0) then 'Empty' else 'Repeat'</expression>
+                                    </operation>
+                                    <link id="v75a2b8a3-de12-4a8f-a39c-467dad5f700d"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decision0369ef2a-a887-4bfe-9374-a21045ae049e"/>
+                                 </assignment>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Serviceb1778591-edb7-4d7e-87f1-8ce56d78df32">
+                                    <title>SearchErrorRecord 1</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBodyforUpdateDate</parameter>
+                                    </serviceInput>
+                                    <link id="n3d2ee8b7-5f2e-45c8-a3e4-b115c124c2d1"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentf344ee03-7f2c-489f-bb7a-91c1f55fb7bf"/>
+                                 </service>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decision35a9f61a-7e21-4f2c-af08-16d36ce84950"
+                                            type="exclusive">
+                                    <title>t_ErrorlogUpdatedateDecision 1</title>
+                                    <flow id="i20f99884-dd09-448c-a236-5c0c6c2ff182">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Service207b514f-cf70-41b8-8537-8429f2a362c8">
+                                          <title>createDQErrorRecord 1</title>
+                                          <serviceName>appConnectorB360:InsertErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_DQErrorPayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">'errorlog'</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                       </service>
+                                       <link id="v16491df4-8694-45ad-ad94-2aada3d41799"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision35a9f61a-7e21-4f2c-af08-16d36ce84950"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <flow id="gef3a9d71-be7e-4f98-9b66-ed984fc2c3aa">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Service323d2d24-27b2-42e8-9ffe-1622a01f2b0a">
+                                          <title>UpdateDQError_Updatedate 1</title>
+                                          <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_ErrorlogUpdatedatePayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">"errorlog"</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="f11b1b961-16c9-4aad-ac1d-24243f20ae9e"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment5295f4fd-23b1-4835-88a2-4a6c28daf191"/>
+                                       </service>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment5295f4fd-23b1-4835-88a2-4a6c28daf191">
+                                          <title>UpdatedateUpdateResponse 1</title>
+                                          <operation source="field" to="temp.t_ErrorlogUpdatedateUpdateResponse">output.InsertRecordResponse</operation>
+                                       </assignment>
+                                       <link id="w5cc00bba-a35c-4394-8eb5-f6967ce4e90e"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision35a9f61a-7e21-4f2c-af08-16d36ce84950"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="z1162e195-f4cf-4f0c-80fa-e7241cbae268"
+                                          targetId="i20f99884-dd09-448c-a236-5c0c6c2ff182"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_ErrorlogUpdatedateDecision}</arg>
+                                             <arg name="right">No</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="e078321f7-7ce8-4988-8973-1637d8627a7b"
+                                          targetId="gef3a9d71-be7e-4f98-9b66-ed984fc2c3aa"
+                                          type="containerLink"/>
+                                    <link id="g90d96b26-b92c-4886-987e-704589c0eda8"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignmenta991807a-61d2-4500-9dd0-075a43f1a05d"/>
+                                 </container>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decision0369ef2a-a887-4bfe-9374-a21045ae049e"
+                                            type="exclusive">
+                                    <title>t_updateDecision 1</title>
+                                    <flow id="f3ceb2b6c-597c-472e-b50c-1656eedc6e6d">
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentd50ff746-071d-43d9-ad1e-bcf549704974">
+                                          <title>DQerrorMessagetail 1</title>
+                                          <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                             <expression language="XQuery">string-join(tail(tokenize($temp.t_U_DQerrorMessage, "@@")), "@@")</expression>
+                                          </operation>
+                                          <operation source="formula" to="temp.t_insertDecision">
+                                             <expression language="XQuery">list:tail( $temp.t_U_DQerrorMessage )</expression>
+                                          </operation>
+                                          <link id="he1a63e6d-1643-4922-9733-30eb7b874f5a"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Jump8c8b2297-c7e7-4219-9ffc-2370a3434308"/>
+                                       </assignment>
+                                       <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jump8c8b2297-c7e7-4219-9ffc-2370a3434308">
+                                          <link id="q7363a4fb-2524-4af4-b247-9db946b80d30"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment1a0f85cd-5cc6-49b4-828a-5671dc3b67e8"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="lce4202d1-938f-4260-8bd0-e106b3faac83">
+                                       <link id="r81d2d531-af0b-49e7-80d6-d3758734f31c"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decision0369ef2a-a887-4bfe-9374-a21045ae049e"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="g1604451e-5549-4a01-9490-48f2859dbb6f"
+                                          targetId="f3ceb2b6c-597c-472e-b50c-1656eedc6e6d"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_updateDecision}</arg>
+                                             <arg name="right">Repeat</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="mf013d04b-ccac-499f-afeb-c3490778469c"
+                                          targetId="lce4202d1-938f-4260-8bd0-e106b3faac83"
+                                          type="containerLink"/>
+                                 </container>
+                                 <link id="cabb41c51-aab2-4868-8731-4473a3fc7036"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-Decision453b34eb-82a3-43b3-8c0a-c55d938143fd"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="v0af8ca39-5ebd-4e87-9633-511bc436d1fd">
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmentb74c79c2-edfd-4c4c-b6d6-4db6be89b1e0">
+                                    <title>PicklistErrorlogPayload 1</title>
+                                    <operation source="formula" to="temp.t_ListDQError">
+                                       <expression language="XQuery">let $list := tokenize($temp.t_U_DQerrorMessage, "@@")
+return head($list)</expression>
+                                    </operation>
+                                    <operation source="field" to="temp.t_CatsyID">temp.t_inputCatsyID</operation>
+                                    <operation source="formula" to="temp.t_DQErrorMessage">
+                                       <expression language="XQuery">$temp.t_ListDQError</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorCode">
+                                       <expression language="XQuery">'E023'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorColumn">
+                                       <expression language="XQuery">let $value :=
+(let $msg := $temp.t_ListDQError 
+let $after := substring-after($msg, "lookup field path ")
+return substring-before($after, "."))
+return if (normalize-space($value) = '') then 'Null' else $value 
+
+</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_RowIdentifierFinal">
+                                       <expression language="XQuery">concat($temp.t_CatsyID,'-', $temp.t_DQErrorCode )</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQRuleName">
+                                       <expression language="XQuery">let $i := 
+  if ( $temp.t_DQErrorCode ='E001' ) then 'COG not Null' 
+  else if ( $temp.t_DQErrorCode ='E002' ) then 'Color not Null'
+  else if ( $temp.t_DQErrorCode ='E003' ) then 'Design not nulll'
+  else if ( $temp.t_DQErrorCode ='E004' ) then 'Dominance not Null'
+  else if ( $temp.t_DQErrorCode ='E005' ) then 'Effect not Null'
+  else if ( $temp.t_DQErrorCode ='E006' ) then 'Flavor not Null'
+  else if ( $temp.t_DQErrorCode ='E007' ) then 'Required for all products, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E008' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E009' ) then 'Optional, must be a valid HTTPS link'
+  else if ( $temp.t_DQErrorCode ='E010' ) then 'product line null , then product line 2 null'
+  else if ( $temp.t_DQErrorCode ='E011' ) then 'product name not Null'
+  else if ( $temp.t_DQErrorCode ='E012' ) then 'Ratio Null'
+  else if ( $temp.t_DQErrorCode ='E013' ) then 'Ratioed Cannabinoids Null'
+  else if ( $temp.t_DQErrorCode ='E014' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E015' ) then 'Retail Price not Null'
+  else if ( $temp.t_DQErrorCode ='E016' ) then 'scent not Null'
+  else if ( $temp.t_DQErrorCode ='E017' ) then 'Strain not Null'
+  else if ( $temp.t_DQErrorCode ='E018' ) then 'total package volum not Null'
+  else if ( $temp.t_DQErrorCode ='E019' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E020' ) then concat("UOM should contain 'g' or", "'ea'")
+  else if ( $temp.t_DQErrorCode ='E021' ) then 'weight / size not Null'
+  else if ( $temp.t_DQErrorCode ='E022' ) then 'wholesale cost not Null'
+  else if ( $temp.t_DQErrorCode ='E023' ) then 'Picklist Field Error'
+  else ''
+  return $i</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorValue">
+                                       <expression language="XQuery">let $value :=
+(let $msg := $temp.t_ListDQError 
+let $after := substring-after($msg, "The code value ")
+return substring-before($after, " does not exist"))
+return if (normalize-space($value) = '') then 'Null' else $value</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_DQErrorPayload">
+                                       <expression language="XQuery">concat(
+  '{',
+    '"rowidentifier": "', $temp.t_RowIdentifierFinal , '", ',
+    '"catsyid": "', $temp.t_inputCatsyID , '", ',
+    '"userid": "xyz", ',
+    '"entity_type": "State", ',
+    '"dqrule": "', $temp.t_DQRuleName, '", ',
+    '"errorcolumn": "', $temp.t_DQErrorColumn, '", ',
+    '"errorvalue": "', $temp.t_DQErrorValue , '", ',
+    '"dqerrorcode": "', $temp.t_DQErrorCode, '", ',
+    '"dqerrordesc": "', $temp.t_DQErrorMessage, '", ',
+    '"isfixed": "false", ',
+    '"insertdate": "', string(current-dateTime()), '", ',
+    '"updatedate": "', string(current-dateTime()), '"',
+ ' }'
+)</expression>
+                                    </operation>
+                                    <link id="g21f76a3f-eb71-400a-b178-e88ac1cb31c3"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment2259269a-3219-4261-a982-e305b7a6fe86"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment2259269a-3219-4261-a982-e305b7a6fe86">
+                                    <title>ErrorlogSearchBodyforUpdateDate 2 1</title>
+                                    <operation source="formula" to="temp.t_ErrorlogSearchBodyforUpdateDate">
+                                       <expression language="XQuery">'{ "entityType": "errorlog", "fields":{"errorlog.rowidentifier":"'|| $temp.t_RowIdentifierFinal ||'"} }'</expression>
+                                    </operation>
+                                    <link id="c22832bb6-2fdf-498f-b244-34f88bf30836"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Servicea77d7110-ca79-459d-b0d7-25ab133f24fb"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment9c420be5-b340-4079-b97d-38c842db1a51">
+                                    <title>ErrorlogSearchResponse 2 1</title>
+                                    <operation source="field" to="temp.t_ErrorlogUpdatedateSearchResponse">output.SearchErrorlogResponse</operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedateDecision">
+                                       <expression language="XQuery">if (
+  some $id in tokenize($temp.t_ErrorlogUpdatedateSearchResponse, "@@")
+  satisfies $id = $temp.t_RowIdentifierFinal
+)
+then 'Yes'
+else 'No'</expression>
+                                    </operation>
+                                    <operation source="formula" to="temp.t_ErrorlogUpdatedatePayload">
+                                       <expression language="XQuery">'[ 
+    { 
+        "op": "replace", 
+        "path": "updatedate",  
+        "value": "' || string(current-dateTime()) || '" 
+    } 
+]'</expression>
+                                    </operation>
+                                    <link id="hd6c676e9-180f-4518-9369-ed1ab5de82b7"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decisioncd5df3d8-e04b-4e2e-8b7c-3c474df8501b"/>
+                                 </assignment>
+                                 <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment4537fc96-e99f-4fbc-b47d-d8c59045a2b0">
+                                    <title>DQErrorResponse 2 1</title>
+                                    <operation source="field" to="temp.t_mdmDQErrorResponse">output.DQErrorResponse</operation>
+                                    <operation source="formula" to="temp.t_updateDecision">
+                                       <expression language="XQuery">if (list:count(tokenize($temp.t_U_DQerrorMessage, "@@"))-1 = 0) then 'Empty' else 'Repeat'</expression>
+                                    </operation>
+                                    <link id="y42d44fb4-2f86-4c87-93e0-e939135804d2"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Decisiona3c4cce9-91cb-4872-8aa1-2049bee6e9ed"/>
+                                 </assignment>
+                                 <service id="a13tBGhczWbD7fJQybttMZKK-Servicea77d7110-ca79-459d-b0d7-25ab133f24fb">
+                                    <title>SearchErrorRecord 2 1</title>
+                                    <serviceName>appConnectorB360:SearchRecord</serviceName>
+                                    <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                    <serviceInput>
+                                       <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                       <parameter name="SearchBody" source="field">temp.t_ErrorlogSearchBodyforUpdateDate</parameter>
+                                    </serviceInput>
+                                    <link id="jdb19d331-820a-472b-b0ba-66e5f987bd21"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment9c420be5-b340-4079-b97d-38c842db1a51"/>
+                                 </service>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decisioncd5df3d8-e04b-4e2e-8b7c-3c474df8501b"
+                                            type="exclusive">
+                                    <title>t_ErrorlogUpdatedateDecision 2 1</title>
+                                    <flow id="f451f3802-d994-4b1e-84da-44eac4b48cea">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Service2a314be0-a732-4a71-bf51-93e7317ee51c">
+                                          <title>createDQErrorRecord 2 1</title>
+                                          <serviceName>appConnectorB360:InsertErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_DQErrorPayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">'errorlog'</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                       </service>
+                                       <link id="eb23f2960-0cd1-49e4-a5bf-0d7ea005ad70"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisioncd5df3d8-e04b-4e2e-8b7c-3c474df8501b"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <flow id="dfd417830-2624-4bbc-94bd-4fbe57c917f9">
+                                       <service id="a13tBGhczWbD7fJQybttMZKK-Service96471869-281a-4a77-925b-01446e1dde95">
+                                          <title>UpdateDQError_Updatedate 2 1</title>
+                                          <serviceName>appConnectorB360:UpdateErrorlog</serviceName>
+                                          <serviceGUID>3vXYBFeQW3Pl6KVCaHptmj</serviceGUID>
+                                          <serviceInput>
+                                             <parameter name="sessionID" source="field">temp.t_sessionID</parameter>
+                                             <parameter name="payload" source="field">temp.t_ErrorlogUpdatedatePayload</parameter>
+                                             <parameter name="sourcePkey" source="field">temp.t_RowIdentifierFinal</parameter>
+                                             <parameter name="BusinessEntity" source="formula">
+                                                <expression language="XQuery">"errorlog"</expression>
+                                             </parameter>
+                                          </serviceInput>
+                                          <link id="k5c07f3c0-7270-4617-802c-a3f6ecc8f1f5"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignment55168eef-1662-46e6-94b7-5778d5ae3961"/>
+                                       </service>
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment55168eef-1662-46e6-94b7-5778d5ae3961">
+                                          <title>UpdatedateUpdateResponse 2 1</title>
+                                          <operation source="field" to="temp.t_ErrorlogUpdatedateUpdateResponse">output.DQErrorResponse</operation>
+                                       </assignment>
+                                       <link id="lb39dc4c3-ecdc-4c2f-9db4-e94a4f56b549"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisioncd5df3d8-e04b-4e2e-8b7c-3c474df8501b"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="me8229ee0-bb52-4d80-96f3-645177979680"
+                                          targetId="f451f3802-d994-4b1e-84da-44eac4b48cea"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_ErrorlogUpdatedateDecision}</arg>
+                                             <arg name="right">No</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="j15b453bc-74ed-4c3d-9bfc-bbae3a316c64"
+                                          targetId="dfd417830-2624-4bbc-94bd-4fbe57c917f9"
+                                          type="containerLink"/>
+                                    <link id="i0b1ae486-c002-4089-9e1b-4be2dee2333e"
+                                          targetId="a13tBGhczWbD7fJQybttMZKK-Assignment4537fc96-e99f-4fbc-b47d-d8c59045a2b0"/>
+                                 </container>
+                                 <container id="a13tBGhczWbD7fJQybttMZKK-Decisiona3c4cce9-91cb-4872-8aa1-2049bee6e9ed"
+                                            type="exclusive">
+                                    <title>t_updateDecision 2 1</title>
+                                    <flow id="wdd4e98ec-4b4d-4949-abfc-70d28f68f7cb">
+                                       <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignmente13e66f3-feab-4a1c-8300-07ccd05bdb84">
+                                          <title>DQerrorMessagetail 2 1</title>
+                                          <operation source="formula" to="temp.t_U_DQerrorMessage">
+                                             <expression language="XQuery">string-join(tail(tokenize($temp.t_U_DQerrorMessage, "@@")), "@@")</expression>
+                                          </operation>
+                                          <operation source="formula" to="temp.t_insertDecision">
+                                             <expression language="XQuery">list:tail( $temp.t_U_DQerrorMessage )</expression>
+                                          </operation>
+                                          <link id="l947006a3-9769-43db-9c84-1067cce7a819"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Jump4d14cdbc-17ea-415c-a5f3-c7e45d0c107a"/>
+                                       </assignment>
+                                       <jumpTo id="a13tBGhczWbD7fJQybttMZKK-Jump4d14cdbc-17ea-415c-a5f3-c7e45d0c107a">
+                                          <link id="pff208ae3-fbfb-4d35-ac1c-a12c9a6352d9"
+                                                targetId="a13tBGhczWbD7fJQybttMZKK-Assignmentaf1c2914-d5a5-4eb4-92c9-b5014dd7662f"/>
+                                       </jumpTo>
+                                    </flow>
+                                    <flow id="a1d2b69ba-1e1e-4b52-9017-b0e80b19a5cb">
+                                       <link id="f3c975f66-ec85-4592-b8f3-48207f608bd7"
+                                             targetId="a13tBGhczWbD7fJQybttMZKK-Decisiona3c4cce9-91cb-4872-8aa1-2049bee6e9ed"
+                                             type="containerLink"/>
+                                    </flow>
+                                    <link id="v9554e027-b1a9-4689-b7aa-2215926565ea"
+                                          targetId="wdd4e98ec-4b4d-4949-abfc-70d28f68f7cb"
+                                          type="containerLink">
+                                       <condition source="formula">
+                                          <function name="contains">
+                                             <arg name="left">{$temp.t_updateDecision}</arg>
+                                             <arg name="right">Repeat</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="m74e6d6a7-9513-4483-bfaf-e995ca8a1fd6"
+                                          targetId="a1d2b69ba-1e1e-4b52-9017-b0e80b19a5cb"
+                                          type="containerLink"/>
+                                 </container>
+                                 <link id="cbbf671bd-a2a7-45a6-b91e-bf524b5e1e49"
+                                       targetId="a13tBGhczWbD7fJQybttMZKK-Decision453b34eb-82a3-43b3-8c0a-c55d938143fd"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="y46222090-66a0-4044-9c04-29090e49a9a6"
+                                    targetId="gcbb34376-9518-4063-aa33-b5f7c38a07f2"
+                                    type="containerLink">
+                                 <condition source="formula">
+                                    <function name="contains">
+                                       <arg name="left">{$temp.t_PicklistErrorDecision}</arg>
+                                       <arg name="right">Yes</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="q724da5b6-5fd0-429d-9720-eaa64b17ad3c"
+                                    targetId="v0af8ca39-5ebd-4e87-9633-511bc436d1fd"
+                                    type="containerLink"/>
+                              <link id="ld6914193-ab15-484a-ac82-9ef9f941533c"
+                                    targetId="a13tBGhczWbD7fJQybttMZKK-Assignment0b1c0265-d3df-418d-a0a8-a2fc2279b493"/>
+                           </container>
+                           <throw id="a13tBGhczWbD7fJQybttMZKK-Throwcd70afda-7ec1-4f22-b681-8930df617aa6">
+                              <title>Throw 2</title>
+                              <throwInput>
+                                 <parameter name="code" source="formula" updatable="true">
+                                    <expression language="XQuery">'500'</expression>
+                                 </parameter>
+                                 <parameter name="detail" source="formula" updatable="true">
+                                    <expression language="XQuery">'Insert Fail'</expression>
+                                 </parameter>
+                                 <parameter name="reason" source="field" updatable="true">temp.t_DQErrorMessage</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="x3f600c74-2501-46f6-b1cb-ceeaa8c71447"
+                              targetId="h4bf36e84-2e77-4808-a22a-e6cd848e0472"
+                              type="containerLink"/>
+                        <link id="z53dd7913-bca9-4670-9bd1-29b2d2d2228b"
+                              targetId="a13tBGhczWbD7fJQybttMZKK-Assignment95d14ef4-3136-4001-80ba-ce4ae7a0b6ea"/>
+                        <events>
+                           <catch faultField="faultInfoInsert"
+                                  id="p2e9fa30c-ee8b-4bfd-bdd5-ec359f87bf6f"
+                                  interrupting="true">
+                              <link id="wa30e653b-2dc9-43a8-a33f-06c5a916dad9"
+                                    targetId="d0ca43d85-31b9-4b7c-99a0-96a72de30ef8"
+                                    type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <assignment id="a13tBGhczWbD7fJQybttMZKK-Assignment95d14ef4-3136-4001-80ba-ce4ae7a0b6ea">
+                        <title>Assignment to t_mdmInsertResponse, sourcePkey, etc,</title>
+                        <operation source="field" to="temp.t_mdmInsertResponse">output.InsertRecordResponse</operation>
+                        <operation source="field" to="output.sourcePkey">temp.t_sourcePkey</operation>
+                        <operation source="formula" to="output.Status">
+                           <expression language="XQuery">'Insert Success'</expression>
+                        </operation>
+                     </assignment>
+                     <link id="m293092da-5a6b-431c-8ce8-daa5d80a892d"
+                           targetId="a13tBGhczWbD7fJQybttMZKK-Decisionc83853da-aef2-4dd6-851b-d6426d017a2e"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="pa68e7c05-c4e5-42fa-9c4d-d6958ae791a6"
+                        targetId="b42fb2429-7f89-4d57-a68f-d1e897dab045"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="contains">
+                           <arg name="left">{$output.mdmSearchResponse}</arg>
+                           <arg name="right">{$temp.t_inputCatsyID}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="af58fb2da-5cee-4d63-8d50-e708d3495d70"
+                        targetId="cd474283b-8d0c-44e9-b85d-eb0993eb8dfa"
+                        type="containerLink"/>
+                  <link id="tdf0fa680-307e-41d0-a52b-eec8baf569b5"
+                        targetId="a13tBGhczWbD7fJQybttMZKK-end-p07240a94-3585-4415-a2ee-f36168864a5e"/>
+               </container>
+               <end id="a13tBGhczWbD7fJQybttMZKK-end-p07240a94-3585-4415-a2ee-f36168864a5e">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>6a73712b-133f-470f-a88e-c041990587d2</ns1:Id>
+               <ns1:Name>TestCAI</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "InputData": "21075036"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>de985c76-5961-4854-95c6-abee236da4e2</ns1:Id>
+               <ns1:Name>TEstCAI2</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "InputData": "\n"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>060ff468-56a6-4c7f-aae4-bc87d7344082</ns1:Id>
+               <ns1:Name>TestCAI3</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "Catsy_Pkey": "1234"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>8e9738de-9e95-4c28-839a-ff7798e17698</ns1:Id>
+               <ns1:Name>TestCAI4</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "CatsyID": "\n"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>17050d87-b91f-4ad2-9ea2-2f6f7a42ec76</ns1:Id>
+               <ns1:Name>Testcai5</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "entityType": "product_poc",
+    "search": "300010003"
+}</ns1:Data>
+            </ns1:SampleData>
+            <ns1:SampleData>
+               <ns1:Id>7f838e4d-00d9-4490-bc6f-b4c0c73a5964</ns1:Id>
+               <ns1:Name>TestCAI6</ns1:Name>
+               <ns1:CreatedBy>leela.gatla@curaleaf.com</ns1:CreatedBy>
+               <ns1:CreationDate>2025-07-22T16:24:54Z</ns1:CreationDate>
+               <ns1:ModifiedBy>leela.gatla@curaleaf.com</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-07-22T16:24:54Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "entityType": "product_poc",
+    "search": "300040001"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>3tBGhczWbD7fJQybttMZKK</types1:GUID>
+      <types1:DisplayName>process_CatsyToMDM_State</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-08-13T12:23:18.585Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

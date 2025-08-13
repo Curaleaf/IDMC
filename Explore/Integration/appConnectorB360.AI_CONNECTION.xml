@@ -1,0 +1,51 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Tdqpw0VPNzUzeA8-gt-149434-2025-05-12T13:21:49.735Z::conn.xml</types1:EntryId>
+      <types1:Name>appConnectorB360</types1:Name>
+      <types1:ParentFlowIds>4xWPQE8jIw8jIw8-gt-4474179-2025-07-30T12:57:52.896Z::pd.xml,9Gjw4ARW8UBM7zs-gt-34931-2025-07-22T16:25:52.98Z::pd.xml,9T3WabeAzu2JQht-gt-8879397-2025-06-18T17:52:32.983Z::pd.xml,HGQzxD19QqdsQR6-gt-189786-2025-06-09T13:18:42.534Z::pd.xml,m4yi8fVQU8lpDqo-gt-112413-2025-08-06T17:04:11.97Z::pd.xml,n7ZLPJljxcghuIm-gt-738459-2025-07-22T16:24:54.222Z::pd.xml,snCmp6oIuQaaabc-gt-4478935-2025-07-30T12:57:52.303Z::pd.xml,vTxqPVEQrXhNUdy-gt-739287-2025-07-22T16:25:53.4Z::pd.xml,Y5sBsoZduD2L5Se-gt-83723-2025-07-23T16:09:12.811Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>leela.gatla@curaleaf.com</types1:CreatedBy>
+      <types1:CreationDate>2025-05-12T13:21:50Z</types1:CreationDate>
+      <types1:ModifiedBy>leela.gatla@curaleaf.com</types1:ModifiedBy>
+      <types1:ModificationDate>2025-05-16T14:42:07Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>leela.gatla@curaleaf.com</types1:PublishedBy>
+      <types1:PublicationDate>2025-07-29T17:31:28Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/appConnectorB360/appConnectorB360.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="appConnectorB360"
+                     label="appConnectorB360"
+                     name="appConnectorB360">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="true" name="Username" value=""/>
+               <attribute encrypted="true" name="Password" value=""/>
+               <attribute encrypted="true" name="LoginUrl" value=""/>
+               <attribute encrypted="true" name="BaseURL" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SCB360/SCB360_svcDef.xml"
+                               guid="2M7wCoBc0sqekiEJU9zEif"
+                               name="SCB360"
+                               supportsConnectionTest="false"
+                               uuid="92d1a26d-6bc5-4dfc-9a8d-1107ad26565e">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>3vXYBFeQW3Pl6KVCaHptmj</types1:GUID>
+      <types1:DisplayName>appConnectorB360</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-08-13T12:23:18.383Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "3tBGhczWbD7fJQybttMZKK",
+    "name" : "process_CatsyToMDM_State",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "n7ZLPJljxcghuIm-gt-738459-2025-07-22T16:24:54.222Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-08-13T12:23:18.935Z",
+  "objectRefs" : [ {
+    "id" : "3vXYBFeQW3Pl6KVCaHptmj",
+    "name" : "appConnectorB360",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Tdqpw0VPNzUzeA8-gt-149434-2025-05-12T13:21:49.735Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Integration"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
