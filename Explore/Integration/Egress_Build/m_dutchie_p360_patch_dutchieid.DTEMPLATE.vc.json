@@ -1,0 +1,636 @@
+{
+  "content" : {
+    "description" : "update the product ID back into MDM, maintaining referential integrity.",
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_dutchie_p360_patch_dutchieid",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "src_sessionId -> exp_dummy_const1"
+      },
+      {
+        "link" : "exp_dummy_const1 -> jnr_product_sessionId",
+        "groupLink" : "DefaultGroup -> Master"
+      },
+      {
+        "link" : "jnr_product_sessionId -> java_patch_dutchieId",
+        "groupLink" : "OutputGroup -> DefaultGroup"
+      },
+      {
+        "link" : "java_patch_dutchieId -> tgt_patch_result"
+      },
+      {
+        "link" : "src_product -> exp_dummy_const"
+      },
+      {
+        "link" : "exp_dummy_const -> jnr_product_sessionId",
+        "groupLink" : "DefaultGroup -> Detail"
+      }
+    ],
+    "transformations" : [
+      {
+        "createTime" : "2025-07-24T10:06:04.737Z",
+        "name" : "src_product",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "productId"
+            },
+            "name" : "productId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "sku"
+            },
+            "name" : "sku",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@aBTYIBtx9lNl1W6bFvcf6D",
+          "connectionName" : "Dutchie_Files",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "patch_input.csv",
+            "label" : "patch_input.csv",
+            "objectName" : "patch_input.csv",
+            "path" : "patch_input.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "productId",
+                "fieldType" : "CONNECTOR",
+                "label" : "productId",
+                "nativeName" : "productId",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "patch_input.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "sku",
+                "fieldType" : "CONNECTOR",
+                "label" : "sku",
+                "nativeName" : "sku",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "patch_input.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "createTime" : "2025-07-24T10:30:11.294Z",
+        "name" : "exp_dummy_const",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "nextval",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "1"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2025-07-24T10:34:18.076Z",
+        "name" : "java_patch_dutchieId",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "productId"
+                  },
+                  {
+                    "inputName" : "sessionId"
+                  },
+                  {
+                    "inputName" : "sku"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "classPath" : "C:\\Users\\curamasterleaf\\Desktop\\Libraries\\org.json 2.jar;C:\\Users\\curamasterleaf\\Desktop\\Libraries\\httpcore-4.4.10 1.jar;C:\\Users\\curamasterleaf\\Desktop\\Libraries\\httpclient-4.5.6 1.jar;C:\\Users\\curamasterleaf\\Desktop\\Libraries\\commons-logging-1.2 1.jar",
+        "helperCodeSnippet" : "static String apiUrl = \"https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity-xref/state_finished_product/catsy\";\n\n\npublic void sendPatchRequest(String requestBody,String sessionId,String entityId) {\n    try {\n        String fullUrl = apiUrl + \"/\" + entityId;\n        URL url = new URL(fullUrl);\n        HttpURLConnection conn = (HttpURLConnection) url.openConnection();\n        conn.setRequestMethod(\"PATCH\");\n        conn.setRequestProperty(\"Content-Type\", \"application/json\");\n        conn.setRequestProperty(\"IDS-SESSION-ID\", sessionId);\n        conn.setDoOutput(true);\n\n        try (OutputStream os = conn.getOutputStream()) {\n            byte[] input = requestBody.getBytes(\"utf-8\");\n            os.write(input, 0, input.length);\n        }\n\n        int responseCode = conn.getResponseCode();\n    \tresponse_code = responseCode;\n\n    \t// Send row forward\n    \tgenerateRow();\n\n\n    } catch (Exception e) {\n        e.printStackTrace();\n      \n\t\tresponse_code = -1;\n\n    \ttry {\n        generateRow();\n    } catch (SDKException sdkEx) {\n        sdkEx.printStackTrace();\n    }\n    }\n}\n\n\n",
+        "importPackagesSnippet" : "import java.io.OutputStream;\nimport java.net.HttpURLConnection;\nimport java.net.URL;\n",
+        "lastCompilationFailed" : "false",
+        "onEndOfDataMethodSnippet" : "// TODO: Enter the code that executes after the transformation receives all of the input data here.\n//\n// logInfo(\"The number of null rows for this partition is: \" + partCountNullRows);\n// synchronized(lock)\n// {\n//\t\tlogInfo(\"The total number of null rows across partitions until now is: \" +  countNullRows);\n// }\n",
+        "onInputRowMethodSnippet" : "String requestBody = \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"dutchie_id\\\", \\\"value\\\": \\\"\" + productId + \"\\\"}]\";\n\nsendPatchRequest(requestBody,sessionId,sku);\n",
+        "onTransactionMethodSnippet" : "// TODO: Enter the code that executes when the transformation receives a transaction here.\n",
+        "runtimeEnvId" : "011CFA25000000000003",
+        "sorterModeJava" : "SIMPLE",
+        "unmodifiedCompilation" : "true",
+        "compiledInputFields" : [
+          {
+            "name" : "sessionId",
+            "precision" : 255,
+            "scale" : 0,
+            "type" : "string"
+          },
+          {
+            "name" : "productId",
+            "precision" : 255,
+            "scale" : 0,
+            "type" : "string"
+          },
+          {
+            "name" : "sku",
+            "precision" : 255,
+            "scale" : 0,
+            "type" : "string"
+          }
+        ],
+        "outputFields" : [
+          {
+            "name" : "response_code",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ]
+      },
+      {
+        "createTime" : "2025-07-25T10:02:25.343Z",
+        "name" : "src_sessionId",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "responseXmlSize",
+            "value" : "1024"
+          },
+          {
+            "name" : "performanceMode",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "root",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@9RZZDi3DiZ0e1UcWgSjVcM",
+          "connectionName" : "R2_P360_Login",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "OPERATION",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Auth_P360",
+            "label" : "Auth_P360",
+            "objectName" : "Auth_P360",
+            "path" : "Auth_P360",
+            "retainMetadata" : "false"
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false",
+            "requestXml" : "{\n  \"body\" : {\n    \"username\" : \"dev.int.curaleaf\",\n    \"password\" : \"$9Rb&S7W9\"\n  }\n}"
+          }
+        },
+        "xFieldMap" : {
+          "denormalized" : "false",
+          "mappings" : [
+            {
+              "groupName" : "root",
+              "isRoot" : "false",
+              "xPath" : "/json:root",
+              "xfields" : [
+                {
+                  "name" : "sessionId",
+                  "platformType" : {
+                    "name" : "string"
+                  },
+                  "precision" : 255,
+                  "scale" : 0,
+                  "foreignKey" : "false",
+                  "primaryKey" : "false",
+                  "xPath" : "/json:root/json:Response_200/json:userInfo/json:sessionId"
+                }
+              ]
+            }
+          ],
+          "packed" : {
+            "packedFields" : null
+          }
+        }
+      },
+      {
+        "createTime" : "2025-07-24T10:30:11.294Z",
+        "name" : "exp_dummy_const1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "nextval1",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "1"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "createTime" : "2025-07-25T10:25:52.428Z",
+        "name" : "jnr_product_sessionId",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "Master",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "true",
+            "name" : "Detail",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "OutputGroup",
+            "output" : "true"
+          }
+        ],
+        "joinType" : "Normal Join",
+        "joinConditions" : [
+          {
+            "leftOperand" : "nextval1",
+            "operator" : "=",
+            "rightOperand" : "nextval"
+          }
+        ]
+      },
+      {
+        "createTime" : "2025-07-24T10:06:04.737Z",
+        "name" : "tgt_patch_result",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true",
+                "names" : [
+                  {
+                    "inputName" : "productId",
+                    "outputName" : "Dutchie_ID"
+                  },
+                  {
+                    "inputName" : "response_code",
+                    "outputName" : "Response_Code"
+                  },
+                  {
+                    "inputName" : "sku",
+                    "outputName" : "State_Varient_ID"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "YES"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "true",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "State_Varient_ID"
+            },
+            "name" : "State_Varient_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Dutchie_ID"
+            },
+            "name" : "Dutchie_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Response_Code"
+            },
+            "name" : "Response_Code",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@aBTYIBtx9lNl1W6bFvcf6D",
+          "connectionName" : "Dutchie_Files",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "dutchieId_patch_result.csv",
+            "label" : "dutchieId_patch_result.csv",
+            "path" : "dutchieId_patch_result.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Response_Code",
+                "fieldType" : "CONNECTOR",
+                "nativeName" : "Response_Code",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "dutchieId_patch_result.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Dutchie_ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "productId",
+                "nativeName" : "productId",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "dutchieId_patch_result.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "State_Varient_ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "sku",
+                "nativeName" : "sku",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "dutchieId_patch_result.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2025-08-13 05:06:54 PDT"
+}

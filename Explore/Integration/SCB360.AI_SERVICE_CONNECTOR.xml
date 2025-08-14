@@ -1,0 +1,567 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>q78oQdpgbcggaaa-gt-3189683-2025-05-09T16:45:49.263Z::svc.xml</types1:EntryId>
+      <types1:Name>SCB360</types1:Name>
+      <types1:ParentFlowIds>Tdqpw0VPNzUzeA8-gt-149434-2025-05-12T13:21:49.735Z::conn.xml,WxXlQNOQoVVVVVV-gt-334157-2025-06-19T15:46:45.783Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>leela.gatla@curaleaf.com</types1:CreatedBy>
+      <types1:CreationDate>2025-05-09T16:45:49Z</types1:CreationDate>
+      <types1:ModifiedBy>leela.gatla@curaleaf.com</types1:ModifiedBy>
+      <types1:ModificationDate>2025-07-29T17:29:40Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>leela.gatla@curaleaf.com</types1:PublishedBy>
+      <types1:PublicationDate>2025-07-29T17:29:44Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SCB360/SCB360_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SCB360"
+                            label=""
+                            name="SCB360"
+                            uuid="92d1a26d-6bc5-4dfc-9a8d-1107ad26565e">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="Username"
+                                    masked="true"
+                                    name="Username"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    label="Password"
+                                    masked="true"
+                                    name="Password"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    label="LoginUrl"
+                                    masked="true"
+                                    name="LoginUrl"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    label="BaseURL"
+                                    masked="true"
+                                    name="BaseURL"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="false"
+                       forSearch="false"
+                       label="getSessionID"
+                       maxRedirects="100"
+                       name="getSessionID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="Username"
+                                required="false"
+                                testWith="dev.int.curaleaf"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="Password"
+                                required="false"
+                                testWith="$9Rb&amp;S7W9"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="LoginUrl"
+                                required="false"
+                                testWith="https://dm1-us.informaticacloud.com/saas/public/core/v3/login"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated" url="{$LoginUrl}" verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body>{{"username":"dev.int.curaleaf",
+"password":"$9Rb&amp;amp;S7W9"}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="mdm_response"
+                            type="string"/>
+                     <field description="" name="sessionId" type="string">
+                        <xquery>{/root//sessionId/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="SearchRecord"
+                       maxRedirects="100"
+                       name="SearchRecord"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="4Qej4XCVnsBir78nCWHaS8"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="SearchBody"
+                                nogen="true"
+                                required="false"
+                                testWith="{ &#34;entityType&#34;: &#34;global_finished_product&#34;, &#xA;&#34;fields&#34;:{&#34;global_finished_product.unique_id&#34;:&#34;433&#34;} }&#xA;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/search/public/api/v1/search"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{ $SearchBody}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="mdmSearchResponse"
+                            type="string"/>
+                     <field description=""
+                            name="I_sourcePkey"
+                            property="_members"
+                            type="string"/>
+                     <field description="" name="SearchErrorlogResponse" type="string">
+                        <xquery>{(: string-join(
+  for $msg in //errorlog.rowidentifier/text()
+  return if (//errorlog.isfixed/text()="true") then string($msg),
+  '@@') else () :)
+
+string-join(
+  for $rec in //records
+  where $rec/errorlog.isfixed = "false" 
+  return string($rec/errorlog.rowidentifier),
+  "@@"
+)}</xquery>
+                     </field>
+                     <field description="" name="GlobalSearchResponse" type="string">
+                        <xquery>{let $doc:= $mdmSearchResponse
+return string($doc//global_finished_product.unique_id)}</xquery>
+                     </field>
+                     <field description="" name="capturedbusinessID" type="string">
+                        <xquery>{/root/searchResult/records/_meta/businessId/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="UpdateRecord"
+                       maxRedirects="100"
+                       name="UpdateRecord"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="aWwvMgfoMG4eS6Wsqnl1g1"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="{&#xA;    &#34;state&#34;: {&#xA;        &#34;Code&#34;: &#34;AZ&#34;,&#xA;        &#34;Name&#34;: &#34;Arizona&#34;&#xA;    },&#xA;    &#34;vendor&#34;: {&#xA;        &#34;Code&#34;: &#34;VEN_2&#34;,&#xA;        &#34;Name&#34;: &#34;Copia/Rainbow Collective, INC&#34;&#xA;    },&#xA;    &#34;sourced&#34;: {&#xA;        &#34;Code&#34;: &#34;Produced&#34;,&#xA;        &#34;Name&#34;: &#34;Produced&#34;&#xA;    },&#xA;    &#34;product_lifecycle&#34;: {&#xA;        &#34;Code&#34;: &#34;Active&#34;,&#xA;        &#34;Name&#34;: &#34;Active&#34;&#xA;    },&#xA;    &#34;state_variant_id&#34;: &#34;505&#34;,&#xA;    &#34;parent_catsy_id&#34;: &#34;1&#34;,&#xA;    &#34;catsy_id&#34;: &#34;1&#34;,&#xA;    &#xA;    &#34;parent_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Cannabis&#34;&#xA;    },&#xA;    &#34;master_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Oral&#34;&#xA;    },&#xA;    &#34;sub_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Bulk Oral&#34;&#xA;    },&#xA;    &#34;sub_category_2&#34;: {&#xA;        &#34;Code&#34;: &#34;Adapter&#34;&#xA;    },&#xA;    &#34;brand&#34;: {&#xA;        &#34;Code&#34;: &#34;1906&#34;,&#xA;        &#34;Name&#34;: &#34;1906&#34;&#xA;    },&#xA;    &#34;product_line&#34;: {&#xA;        &#34;Code&#34;: &#34;4Play&#34;,&#xA;        &#34;Name&#34;: &#34;4Play&#34;&#xA;    },&#xA;    &#34;total_package_volume&#34;: &#34;23&#34;,&#xA;    &#34;product_line_2&#34;: {&#xA;        &#34;Code&#34;: &#34;Line2&#34;,&#xA;        &#34;Name&#34;: &#34;Line2&#34;&#xA;    },&#xA;    &#34;qty_in_pack&#34;: {&#xA;        &#34;Code&#34;: &#34;10&#34;,&#xA;        &#34;Name&#34;: &#34;10&#34;&#xA;    },&#xA;    &#34;serving_size&#34;: &#34;23&#34;,&#xA;    &#34;weight_size&#34;: 22,&#xA;    &#34;unit_of_measure&#34;: {&#xA;        &#34;Code&#34;: &#34;mg&#34;&#xA;    },&#xA;    &#34;color&#34;: {&#xA;        &#34;Code&#34;: &#34;Acid Green&#34;,&#xA;        &#34;Name&#34;: &#34;Acid Green&#34;&#xA;    },&#xA;    &#34;dominance&#34;: {&#xA;        &#34;Code&#34;: &#34;CBD&#34;,&#xA;        &#34;Name&#34;: &#34;CBD&#34;&#xA;    },&#xA;    &#34;ratio&#34;: &#34;1:2&#34;,&#xA;    &#34;ratioed_cannabinoids&#34;: &#34;CBD:THC&#34;,&#xA;    &#34;flavor&#34;: &#34;flavor&#34;,&#xA;    &#34;description&#34;: &#34;desc&#34;,&#xA;    &#34;x_imageurl1&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;     &#34;x_imageurl2&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;      &#34;x_imageurl3&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;    &#34;design&#34;: &#34;desc&#34;,&#xA;    &#34;effect&#34;: {&#xA;        &#34;Code&#34;: &#34;Energy&#34;,&#xA;        &#34;Name&#34;: &#34;Energy&#34;&#xA;    },&#xA;    &#34;scent&#34;: {&#xA;        &#34;Code&#34;: &#34;Floral&#34;,&#xA;        &#34;Name&#34;: &#34;Floral&#34;&#xA;    },&#xA;    &#34;strain&#34;: &#34;strain&#34;,&#xA;    &#34;retail_price_med_&#34;: &#34;123&#34;,&#xA;    &#34;retail_price_rec_&#34;: &#34;123&#34;,&#xA;    &#xA;    &#34;cog&#34;: &#34;123&#34;,&#xA;    &#34;product_name&#34;: &#34;testproduct&#34;,&#xA;    &#34;wholesale_cost&#34;: &#34;123&#34;,&#xA;    &#34;customer_type_1&#34;: {&#xA;        &#34;Code&#34;: &#34;Both&#34;,&#xA;        &#34;Name&#34;: &#34;Both&#34;&#xA;    },&#xA;    &#34;state_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;d9942f5f3ae84755838fc91a9e312337&#34;,&#xA;            &#34;state&#34;: {&#xA;                &#34;Code&#34;: &#34;FL&#34;,&#xA;                &#34;Name&#34;: &#34;Florida&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;12482ff22de44498ad52b67d32711567&#34;,&#xA;            &#34;state&#34;: {&#xA;                &#34;Code&#34;: &#34;AZ&#34;,&#xA;                &#34;Name&#34;: &#34;Arizona&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;color_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;90e8ccb1eb86441a9d64329a7d839f2e&#34;,&#xA;            &#34;color&#34;: {&#xA;                &#34;Code&#34;: &#34;Apricot&#34;,&#xA;                &#34;Name&#34;: &#34;Apricot&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;5ddb0b614524420aaf8b708300092bfe&#34;,&#xA;            &#34;color&#34;: {&#xA;                &#34;Code&#34;: &#34;Acid Green&#34;,&#xA;                &#34;Name&#34;: &#34;Acid Green&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;customer_type&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;b55fa08ee50a40a1bc6b200296b15f72&#34;,&#xA;            &#34;customer_type&#34;: {&#xA;                &#34;Code&#34;: &#34;Med&#34;,&#xA;                &#34;Name&#34;: &#34;Med&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;3f8a6f67cafc45c6b55c30d7056b1777&#34;,&#xA;            &#34;customer_type&#34;: {&#xA;                &#34;Code&#34;: &#34;AU&#34;,&#xA;                &#34;Name&#34;: &#34;AU&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;effect_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;d0673498969b4b628eeae29057856424&#34;,&#xA;            &#34;effect&#34;: {&#xA;                &#34;Code&#34;: &#34;Happy&#34;,&#xA;                &#34;Name&#34;: &#34;Happy&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;0e28619a59dd4cda8c389ec8ec2b5618&#34;,&#xA;            &#34;effect&#34;: {&#xA;                &#34;Code&#34;: &#34;Energy&#34;,&#xA;                &#34;Name&#34;: &#34;Energy&#34;&#xA;            }&#xA;        }&#xA;    ]&#xA;}"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="sourcePkey"
+                                nogen="true"
+                                required="false"
+                                testWith="505"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="BusinessEntity"
+                                nogen="true"
+                                required="false"
+                                testWith="state_finished_product"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity-xref/{$BusinessEntity}/catsy/{$sourcePkey}"
+                                        verb="PUT">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="mdmResponse"
+                            type="string"/>
+                     <field description="" name="DQerrorMessage" type="string">
+                        <xquery>{let $i := for $var in 
+$mdmResponse //errorDetail/details/message/text()
+return (list:append($var, '') )
+
+return $i}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="UpdateErrorlog"
+                       maxRedirects="100"
+                       name="UpdateErrorlog"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="bj8RhalvDAvjh0MRuvv2oX"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="[ { &#34;op&#34;: &#34;replace&#34;, &#34;path&#34;: &#34;updatedate&#34;, &#34;value&#34;: &#34;2025-07-22T19:11:50.55Z&#34; } ]"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="sourcePkey"
+                                nogen="true"
+                                required="false"
+                                testWith="30-E023"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="BusinessEntity"
+                                nogen="true"
+                                required="false"
+                                testWith="errorlog"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity-xref/{$BusinessEntity}/catsy/{$sourcePkey}"
+                                        verb="PATCH">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="DQErrorResponse"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Relationship"
+                       maxRedirects="100"
+                       name="Relationship"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="2OUIcX4zCVriuIIwF73cec"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="{ &#34;_to&#34;: { &#xA; &#34;businessEntity&#34;: &#34;state_finished_product&#34;, &#xA; &#34;businessId&#34;: &#34;MDM00000007I2G&#34; }, &#xA;&#34;_from&#34;: { &#xA; &#34;businessEntity&#34;: &#34;global_finished_product&#34;, &#xA; &#34;businessId&#34;: &#34;MDM000000072MP&#34; } &#xA;}"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/relationship/is_state_finished_goods_of?sourceSystem=catsy"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="RelationshipResponse"
+                            type="string"/>
+                     <field description="" name="Relationship_businessID" type="string">
+                        <xquery>{/root/businessId/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="InsertRecord"
+                       maxRedirects="100"
+                       name="InsertRecord"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="auMFy2S5posgcJUdB6riUC"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="{&#xA;    &#34;state&#34;: {&#xA;        &#34;Code&#34;: &#34;AZ&#34;,&#xA;        &#34;Name&#34;: &#34;Arizona&#34;&#xA;    },&#xA;    &#34;vendor&#34;: {&#xA;        &#34;Code&#34;: &#34;VEN_2&#34;,&#xA;        &#34;Name&#34;: &#34;Copia/Rainbow Collective, INC&#34;&#xA;    },&#xA;    &#34;sourced&#34;: {&#xA;        &#34;Code&#34;: &#34;Produced&#34;,&#xA;        &#34;Name&#34;: &#34;Produced&#34;&#xA;    },&#xA;    &#34;product_lifecycle&#34;: {&#xA;        &#34;Code&#34;: &#34;Active&#34;,&#xA;        &#34;Name&#34;: &#34;Active&#34;&#xA;    },&#xA;    &#34;state_variant_id&#34;: &#34;505&#34;,&#xA;    &#34;parent_catsy_id&#34;: &#34;1&#34;,&#xA;    &#34;catsy_id&#34;: &#34;1&#34;,&#xA;    &#xA;    &#34;parent_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Cannabis&#34;&#xA;    },&#xA;    &#34;master_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Oral&#34;&#xA;    },&#xA;    &#34;sub_category&#34;: {&#xA;        &#34;Code&#34;: &#34;Bulk Oral&#34;&#xA;    },&#xA;    &#34;sub_category_2&#34;: {&#xA;        &#34;Code&#34;: &#34;Adapter&#34;&#xA;    },&#xA;    &#34;brand&#34;: {&#xA;        &#34;Code&#34;: &#34;1906&#34;,&#xA;        &#34;Name&#34;: &#34;1906&#34;&#xA;    },&#xA;    &#34;product_line&#34;: {&#xA;        &#34;Code&#34;: &#34;4Play&#34;,&#xA;        &#34;Name&#34;: &#34;4Play&#34;&#xA;    },&#xA;    &#34;total_package_volume&#34;: &#34;23&#34;,&#xA;    &#34;product_line_2&#34;: {&#xA;        &#34;Code&#34;: &#34;Line2&#34;,&#xA;        &#34;Name&#34;: &#34;Line2&#34;&#xA;    },&#xA;    &#34;qty_in_pack&#34;: {&#xA;        &#34;Code&#34;: &#34;10&#34;,&#xA;        &#34;Name&#34;: &#34;10&#34;&#xA;    },&#xA;    &#34;serving_size&#34;: &#34;23&#34;,&#xA;    &#34;weight_size&#34;: 22,&#xA;    &#34;unit_of_measure&#34;: {&#xA;        &#34;Code&#34;: &#34;mg&#34;&#xA;    },&#xA;    &#34;color&#34;: {&#xA;        &#34;Code&#34;: &#34;Acid Green&#34;,&#xA;        &#34;Name&#34;: &#34;Acid Green&#34;&#xA;    },&#xA;    &#34;dominance&#34;: {&#xA;        &#34;Code&#34;: &#34;CBD&#34;,&#xA;        &#34;Name&#34;: &#34;CBD&#34;&#xA;    },&#xA;    &#34;ratio&#34;: &#34;1:2&#34;,&#xA;    &#34;ratioed_cannabinoids&#34;: &#34;CBD:THC&#34;,&#xA;    &#34;flavor&#34;: &#34;flavor&#34;,&#xA;    &#34;description&#34;: &#34;desc&#34;,&#xA;    &#34;x_imageurl1&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;     &#34;x_imageurl2&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;      &#34;x_imageurl3&#34;: &#34;https://tse2.mm.bing.net/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#xA;    &#34;design&#34;: &#34;desc&#34;,&#xA;    &#34;effect&#34;: {&#xA;        &#34;Code&#34;: &#34;Energy&#34;,&#xA;        &#34;Name&#34;: &#34;Energy&#34;&#xA;    },&#xA;    &#34;scent&#34;: {&#xA;        &#34;Code&#34;: &#34;Floral&#34;,&#xA;        &#34;Name&#34;: &#34;Floral&#34;&#xA;    },&#xA;    &#34;strain&#34;: &#34;strain&#34;,&#xA;    &#34;retail_price_med_&#34;: &#34;123&#34;,&#xA;    &#34;retail_price_rec_&#34;: &#34;123&#34;,&#xA;    &#xA;    &#34;cog&#34;: &#34;123&#34;,&#xA;    &#34;product_name&#34;: &#34;testproduct&#34;,&#xA;    &#34;wholesale_cost&#34;: &#34;123&#34;,&#xA;    &#34;customer_type_1&#34;: {&#xA;        &#34;Code&#34;: &#34;Both&#34;,&#xA;        &#34;Name&#34;: &#34;Both&#34;&#xA;    },&#xA;    &#34;state_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;d9942f5f3ae84755838fc91a9e312337&#34;,&#xA;            &#34;state&#34;: {&#xA;                &#34;Code&#34;: &#34;FL&#34;,&#xA;                &#34;Name&#34;: &#34;Florida&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;12482ff22de44498ad52b67d32711567&#34;,&#xA;            &#34;state&#34;: {&#xA;                &#34;Code&#34;: &#34;AZ&#34;,&#xA;                &#34;Name&#34;: &#34;Arizona&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;color_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;90e8ccb1eb86441a9d64329a7d839f2e&#34;,&#xA;            &#34;color&#34;: {&#xA;                &#34;Code&#34;: &#34;Apricot&#34;,&#xA;                &#34;Name&#34;: &#34;Apricot&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;5ddb0b614524420aaf8b708300092bfe&#34;,&#xA;            &#34;color&#34;: {&#xA;                &#34;Code&#34;: &#34;Acid Green&#34;,&#xA;                &#34;Name&#34;: &#34;Acid Green&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;customer_type&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;b55fa08ee50a40a1bc6b200296b15f72&#34;,&#xA;            &#34;customer_type&#34;: {&#xA;                &#34;Code&#34;: &#34;Med&#34;,&#xA;                &#34;Name&#34;: &#34;Med&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;3f8a6f67cafc45c6b55c30d7056b1777&#34;,&#xA;            &#34;customer_type&#34;: {&#xA;                &#34;Code&#34;: &#34;AU&#34;,&#xA;                &#34;Name&#34;: &#34;AU&#34;&#xA;            }&#xA;        }&#xA;    ],&#xA;    &#34;effect_1&#34;: [&#xA;        {&#xA;            &#34;_id&#34;: &#34;d0673498969b4b628eeae29057856424&#34;,&#xA;            &#34;effect&#34;: {&#xA;                &#34;Code&#34;: &#34;Happy&#34;,&#xA;                &#34;Name&#34;: &#34;Happy&#34;&#xA;            }&#xA;        },&#xA;        {&#xA;            &#34;_id&#34;: &#34;0e28619a59dd4cda8c389ec8ec2b5618&#34;,&#xA;            &#34;effect&#34;: {&#xA;                &#34;Code&#34;: &#34;Energy&#34;,&#xA;                &#34;Name&#34;: &#34;Energy&#34;&#xA;            }&#xA;        }&#xA;    ]&#xA;}"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="sourcePkey"
+                                nogen="true"
+                                required="false"
+                                testWith="505"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="BusinessEntity"
+                                nogen="true"
+                                required="false"
+                                testWith="state_finished_product"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity/{$BusinessEntity}?sourceSystem=catsy&amp;amp;sourcePKey={$sourcePkey}"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="InsertRecordResponse"
+                            type="string"/>
+                     <field description="" name="CaptureBusinessID" type="string">
+                        <xquery>{/root/businessId/text()}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="InsertErrorlog"
+                       maxRedirects="100"
+                       name="InsertErrorlog"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="bj8RhalvDAvjh0MRuvv2oX"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="{&#34;rowidentifier&#34;: &#34;30-E023&#34;, &#34;catsyid&#34;: &#34;30&#34;, &#34;userid&#34;: &#34;xyz&#34;, &#34;entity_type&#34;: &#34;State&#34;, &#34;dqrule&#34;: &#34;Picklist Field Error&#34;, &#34;errorcolumn&#34;: &#34;parent_category&#34;, &#34;errorvalue&#34;: &#34;Test&#34;, &#34;dqerrorcode&#34;: &#34;E023&#34;, &#34;dqerrordesc&#34;: &#34;The code value Test does not exist in the lookup field path parent_category. Specify a valid code value.&#34;, &#34;isfixed&#34;: &#34;false&#34;, &#34;insertdate&#34;: &#34;2025-07-22T18:42:37.942Z&#34;, &#34;updatedate&#34;: &#34;2025-07-22T18:42:37.942Z&#34; }"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="sourcePkey"
+                                nogen="true"
+                                required="false"
+                                testWith="30-E023"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="BusinessEntity"
+                                nogen="true"
+                                required="false"
+                                testWith="errorlog"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity/{$BusinessEntity}?sourceSystem=catsy&amp;amp;sourcePKey={$sourcePkey}"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="InsertErrorlogResponse"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="UpdateRecordWithPOST"
+                       maxRedirects="100"
+                       name="UpdateRecordWithPOST"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="sessionID"
+                                nogen="true"
+                                required="false"
+                                testWith="a7PHzx4yNOklR2VUgBWKwb"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="payload"
+                                nogen="true"
+                                required="false"
+                                testWith="{&#34;retail_price_rec_&#34;:&#34;123&#34;,&#34;ratioed_cannabinoids&#34;:&#34;&#34;,&#34;state_1&#34;:[{&#34;state&#34;:{&#34;Name&#34;:&#34;Florida&#34;,&#34;Code&#34;:&#34;FL&#34;},&#34;_id&#34;:&#34;d9942f5f3ae84755838fc91a9e312337&#34;},{&#34;state&#34;:{&#34;Name&#34;:&#34;Arizona&#34;,&#34;Code&#34;:&#34;AZ&#34;},&#34;_id&#34;:&#34;12482ff22de44498ad52b67d32711567&#34;}],&#34;effect_1&#34;:[{&#34;effect&#34;:{&#34;Name&#34;:&#34;Happy&#34;,&#34;Code&#34;:&#34;Happy&#34;},&#34;_id&#34;:&#34;d0673498969b4b628eeae29057856424&#34;},{&#34;effect&#34;:{&#34;Name&#34;:&#34;Energy&#34;,&#34;Code&#34;:&#34;Energy&#34;},&#34;_id&#34;:&#34;0e28619a59dd4cda8c389ec8ec2b5618&#34;}],&#34;color&#34;:{&#34;Name&#34;:&#34;Acid Green&#34;,&#34;Code&#34;:&#34;Acid Green&#34;},&#34;state_variant_id&#34;:&#34;610&#34;,&#34;product_line&#34;:{&#34;Name&#34;:&#34;4Play&#34;,&#34;Code&#34;:&#34;4Play&#34;},&#34;retail_price_med_&#34;:&#34;123&#34;,&#34;brand&#34;:{&#34;Name&#34;:&#34;1906&#34;,&#34;Code&#34;:&#34;1906&#34;},&#34;vendor&#34;:{&#34;Name&#34;:&#34;Copia\/Rainbow Collective, INC&#34;,&#34;Code&#34;:&#34;VEN_2&#34;},&#34;weight_size&#34;:22,&#34;sourced&#34;:{&#34;Name&#34;:&#34;Produced&#34;,&#34;Code&#34;:&#34;Produced&#34;},&#34;qty_in_pack&#34;:{&#34;Name&#34;:&#34;10&#34;,&#34;Code&#34;:&#34;10&#34;},&#34;ratio&#34;:&#34;&#34;,&#34;customer_type_1&#34;:null,&#34;wholesale_cost&#34;:&#34;123&#34;,&#34;total_package_volume&#34;:&#34;23&#34;,&#34;sub_category_2&#34;:{&#34;Name&#34;:&#34;Adapter&#34;,&#34;Code&#34;:&#34;Adapter&#34;},&#34;unit_of_measure&#34;:{&#34;Name&#34;:&#34;MilliGrams&#34;,&#34;Code&#34;:&#34;mg&#34;},&#34;state&#34;:null,&#34;effect&#34;:{&#34;Name&#34;:&#34;Happy&#34;,&#34;Code&#34;:&#34;Happy&#34;},&#34;parent_category&#34;:{&#34;Name&#34;:&#34;Cannabis&#34;,&#34;Code&#34;:&#34;Cannabis&#34;},&#34;parent_catsy_id&#34;:&#34;1&#34;,&#34;serving_size&#34;:&#34;23&#34;,&#34;strain&#34;:&#34;strain&#34;,&#34;color_1&#34;:[{&#34;color&#34;:{&#34;Name&#34;:&#34;Apricot&#34;,&#34;Code&#34;:&#34;Apricot&#34;},&#34;_id&#34;:&#34;90e8ccb1eb86441a9d64329a7d839f2e&#34;},{&#34;color&#34;:{&#34;Name&#34;:&#34;Acid Green&#34;,&#34;Code&#34;:&#34;Acid Green&#34;},&#34;_id&#34;:&#34;5ddb0b614524420aaf8b708300092bfe&#34;}],&#34;x_imageurl1&#34;:&#34;https:\/\/tse2.mm.bing.net\/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#34;dominance&#34;:{&#34;Name&#34;:&#34;CBD&#34;,&#34;Code&#34;:&#34;CBD&#34;},&#34;x_imageurl2&#34;:&#34;https:\/\/tse2.mm.bing.net\/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#34;product_line_2&#34;:{&#34;Name&#34;:&#34;Line2&#34;,&#34;Code&#34;:&#34;Line2&#34;},&#34;x_imageurl3&#34;:&#34;https:\/\/tse2.mm.bing.net\/th?id=OIP.5or_Q_ual-arU2WZUjYPagHaE8&amp;pid=Api&amp;P=0&amp;h=180&#34;,&#34;product_lifecycle&#34;:{&#34;Name&#34;:&#34;Active&#34;,&#34;Code&#34;:&#34;Active&#34;},&#34;scent&#34;:{&#34;Name&#34;:&#34;Floral&#34;,&#34;Code&#34;:&#34;Floral&#34;},&#34;cog&#34;:&#34;124&#34;,&#34;master_category&#34;:{&#34;Name&#34;:&#34;Bevs&#34;,&#34;Code&#34;:&#34;Bevs&#34;},&#34;customer_type&#34;:[{&#34;_id&#34;:&#34;b55fa08ee50a40a1bc6b200296b15f72&#34;,&#34;customer_type&#34;:{&#34;Name&#34;:&#34;Med&#34;,&#34;Code&#34;:&#34;Med&#34;}},{&#34;_id&#34;:&#34;3f8a6f67cafc45c6b55c30d7056b1777&#34;,&#34;customer_type&#34;:{&#34;Name&#34;:&#34;AU&#34;,&#34;Code&#34;:&#34;AU&#34;}}],&#34;product_name&#34;:&#34;testproduct&#34;,&#34;description&#34;:&#34;desc&#34;,&#34;sub_category&#34;:{&#34;Name&#34;:&#34;Bag&#34;,&#34;Code&#34;:&#34;Bag&#34;},&#34;design&#34;:&#34;desc&#34;,&#34;flavor&#34;:&#34;flavor&#34;,&#34;catsy_id&#34;:&#34;1&#34;}"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="sourcePKey"
+                                nogen="true"
+                                required="false"
+                                testWith="610"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="BusinessEntity"
+                                nogen="true"
+                                required="false"
+                                testWith="state_finished_product"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw3-mdm.dm1-us.informaticacloud.com/business-entity/public/api/v1/entity/{$BusinessEntity}?sourceSystem=catsy&amp;amp;sourcePKey={$sourcePKey}"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$sessionID}</header>
+                        </httpHeaders>
+                        <body>{$payload}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="UpdatePostResponse"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>2M7wCoBc0sqekiEJU9zEif</types1:GUID>
+      <types1:DisplayName>SCB360</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-08-13T12:23:18.208Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
